@@ -1,0 +1,291 @@
+@use "colors" as c;
+
+.Home {
+
+    .Intro {
+
+        max-width: 80%;
+        margin: 1em auto 4em auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        
+
+        .Title {
+
+            h1 {
+                font-size: 3em;
+                margin-bottom: 0.5em;
+                color: c.$color1;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 1em;
+                color: c.$color3;
+            }
+
+        }
+
+        .Presentation {
+
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                font-size: 1.2em;
+                margin: 1em 0 0 0;
+                text-align: left;
+                
+            }
+
+            img {
+                width: 25em;
+                height: 25em;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+        }
+
+        .CV {
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 1.5em;
+                color: c.$color3;
+            }
+
+            .btn {
+                text-decoration: none;
+                color: c.$color1;
+                font-weight: bold;
+                border: 2px solid c.$color1;
+                padding: 1em 2em;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+
+                &:hover {
+                    background-color: c.$color1;
+                    color: white;
+                }
+
+            }
+        }
+
+    }
+
+
+
+    .Projects {
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: column;
+
+        border-top: 1px solid c.$color1;
+        margin: 4em 0 0 0;
+        background-color: c.$color5;
+        padding: 1em 0 5em 0;
+
+        .Projects_list {
+
+            gap: 5em;
+            display: flex;
+            flex-direction: column;
+            
+            margin: 2em 0 0 0;
+
+            width: 60%;
+
+
+            .Project {
+
+                display: flex;
+                flex-direction: column;
+                align-items: right;
+
+                box-shadow: 10px 10px 30px -10px rgba(0,0,0,0.75);
+                background-color: c.$color7;
+                border-radius: 1em;
+                
+                padding: 3em;
+
+                
+
+
+                h3{
+                    margin: 0.35em 0 0.25em 0;
+                }
+
+                p {
+                    margin: 0.1em;
+                }
+                
+
+                img {
+                    width: 100%;
+                    
+                    object-fit: cover;
+                    border-radius: 10px;
+                    border: 2px solid c.$color5;
+                    margin: 0 0 1em 0;
+                }
+
+                .btn {
+                    
+                    text-decoration: none;
+                    text-align: center;
+                    color: c.$color1;
+                    font-weight: bold;
+                    border: 2px solid c.$color1;
+                    padding: 0.5em 1em;
+                    margin: 1em 0 0 0;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &:hover {
+                        background-color: c.$color1;
+                        color: white;
+                    }
+
+                }
+
+            }
+
+        }
+        
+
+    }
+    
+    .Coordonnées {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 1em;
+        padding: 2.5em;
+        background-color: c.$color4;
+        margin: 0;
+
+        h1 {
+            color: c.$color7;
+            margin: 0 0 0.1em 0;
+
+            font-size: 3em;
+        }
+
+
+        .btn {
+            
+            text-decoration: none;
+            text-align: center;
+            color: c.$color7;
+            font-weight: bold;
+            border: 2px solid c.$color7;
+            padding: 1em 2em;
+            margin: 1em 0 0 0;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+
+            &:hover {
+                background-color: c.$color6;
+                color: c.$color1;
+            }
+
+        }
+
+        article {
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1em;
+            
+            
+        }
+
+
+
+
+    }
+
+}
+
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+
+    .Home {
+        .Intro {
+            .Presentation {
+                max-width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+                gap: 2em;
+                margin-bottom: 2em;
+            }
+        }
+
+
+
+        .Projects {
+
+            .Projects_list {
+                width: 80%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap : 2em;
+
+                .Project {
+                    width: calc(50% - 2em);
+                }
+            }
+
+        }
+    }
+
+    
+}
+
+
+@media screen and (min-width:1024px) {
+
+    .Home {
+        .Intro {
+            .Presentation {
+                max-width: 70%;
+                flex-direction: row;
+                justify-content: space-around;
+                gap: 3em;
+                margin-bottom: 2em;
+            }
+        }
+
+
+
+        .Projects {
+
+            .Projects_list {
+                width: 90%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap : 2em;
+
+                .Project {
+                    width: calc(33% - 2em);
+                }
+            }
+
+        }
+    }
+
+    
+}
+

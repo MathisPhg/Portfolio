@@ -1,0 +1,16 @@
+@use "colors" as c;
+
+@use "layout";
+@use "home";
+
+
+
+* {
+  box-sizing: border-box;
+  
+}
+
+body {
+  background-color: c.$color7;
+  margin: 0;
+}

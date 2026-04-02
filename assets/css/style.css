@@ -1,0 +1,239 @@
+@charset "UTF-8";
+/* color darker to lighter */
+header {
+  background-color: #EBE2F4;
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid #D6CFFF;
+}
+header div {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+header div h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+header div a {
+  text-decoration: none;
+  color: black;
+}
+header div .btn {
+  text-decoration: none;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 2px solid #7C4FFD;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+header div .btn:hover {
+  background-color: #7C4FFD;
+  color: white;
+}
+
+footer {
+  background-color: #7C4FFD;
+  text-align: center;
+  padding: 2em;
+}
+footer p {
+  font-size: 1.2em;
+  color: white;
+  margin: 0;
+}
+
+.Home .Intro {
+  max-width: 80%;
+  margin: 1em auto 4em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.Home .Intro .Title h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  color: #7C4FFD;
+}
+.Home .Intro .Title h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  color: #A185F2;
+}
+.Home .Intro .Presentation {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Home .Intro .Presentation p {
+  font-size: 1.2em;
+  margin: 1em 0 0 0;
+  text-align: left;
+}
+.Home .Intro .Presentation img {
+  width: 25em;
+  height: 25em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.Home .Intro .CV h2 {
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
+  color: #A185F2;
+}
+.Home .Intro .CV .btn {
+  text-decoration: none;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 2px solid #7C4FFD;
+  padding: 1em 2em;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.Home .Intro .CV .btn:hover {
+  background-color: #7C4FFD;
+  color: white;
+}
+.Home .Projects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid #7C4FFD;
+  margin: 4em 0 0 0;
+  background-color: #D6CFFF;
+  padding: 1em 0 5em 0;
+}
+.Home .Projects .Projects_list {
+  gap: 5em;
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0 0 0;
+  width: 60%;
+}
+.Home .Projects .Projects_list .Project {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  box-shadow: 10px 10px 30px -10px rgba(0, 0, 0, 0.75);
+  background-color: #F3F3FC;
+  border-radius: 1em;
+  padding: 3em;
+}
+.Home .Projects .Projects_list .Project h3 {
+  margin: 0.35em 0 0.25em 0;
+}
+.Home .Projects .Projects_list .Project p {
+  margin: 0.1em;
+}
+.Home .Projects .Projects_list .Project img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #D6CFFF;
+  margin: 0 0 1em 0;
+}
+.Home .Projects .Projects_list .Project .btn {
+  text-decoration: none;
+  text-align: center;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 2px solid #7C4FFD;
+  padding: 0.5em 1em;
+  margin: 1em 0 0 0;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.Home .Projects .Projects_list .Project .btn:hover {
+  background-color: #7C4FFD;
+  color: white;
+}
+.Home .Coordonnées {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 2.5em;
+  background-color: #AAA0F9;
+  margin: 0;
+}
+.Home .Coordonnées h1 {
+  color: #F3F3FC;
+  margin: 0 0 0.1em 0;
+  font-size: 3em;
+}
+.Home .Coordonnées .btn {
+  text-decoration: none;
+  text-align: center;
+  color: #F3F3FC;
+  font-weight: bold;
+  border: 2px solid #F3F3FC;
+  padding: 1em 2em;
+  margin: 1em 0 0 0;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.Home .Coordonnées .btn:hover {
+  background-color: #EBE2F4;
+  color: #7C4FFD;
+}
+.Home .Coordonnées article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .Home .Intro .Presentation {
+    max-width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2em;
+    margin-bottom: 2em;
+  }
+  .Home .Projects .Projects_list {
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2em;
+  }
+  .Home .Projects .Projects_list .Project {
+    width: calc(50% - 2em);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .Home .Intro .Presentation {
+    max-width: 70%;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 3em;
+    margin-bottom: 2em;
+  }
+  .Home .Projects .Projects_list {
+    width: 90%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2em;
+  }
+  .Home .Projects .Projects_list .Project {
+    width: calc(33% - 2em);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F3F3FC;
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
