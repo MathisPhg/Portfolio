@@ -1,6 +1,7 @@
 @use "colors" as c;
 
 header {
+    z-index: 100;
 
     background-color: c.$color6;
     position: sticky;
@@ -49,9 +50,14 @@ header {
 }
 
 footer {
+    z-index: 0;
+    position: relative;
+    margin: calc(-100vh + 2em) 0 0 0;
+    padding: 100vh 0 2em 0;
+
     background-color: c.$color1;
     text-align: center;
-    padding: 2em;
+    
 
     p {
         font-size: 1.2em;

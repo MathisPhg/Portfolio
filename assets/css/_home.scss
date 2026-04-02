@@ -1,15 +1,26 @@
 @use "colors" as c;
 
 .Home {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     .Intro {
+        z-index: 4;
+        position: relative;
+        margin: 0 0 0 0;
+        padding: 2em 0 5em 0;
+        border-radius: 0 0 25em 0 / 0 0 12em 0;
 
-        max-width: 80%;
-        margin: 1em auto 4em auto;
+        max-width: 100%;
+        background-color: c.$color7;
         display: flex;
+        justify-content: center;
         flex-direction: column;
         align-items: center;
         text-align: center;
+
+        border-bottom: 1px solid c.$color1;
 
         
 
@@ -82,15 +93,23 @@
 
     .Projects {
 
+        z-index: 2;
+        position: relative;
+        margin: calc(-50vh + 3em) 0 0 0;
+        padding: 50vh 0 10em 0;
+        border-radius: 0 0 0 20em / 0 0 0 12em;
+
+
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         flex-direction: column;
+        width: 100%;
 
-        border-top: 1px solid c.$color1;
-        margin: 4em 0 0 0;
+        
+        
         background-color: c.$color5;
-        padding: 1em 0 5em 0;
+        
 
         .Projects_list {
 
@@ -164,15 +183,22 @@
     
     .Coordonnées {
 
+        z-index: 1;
+        position: relative;
+        margin: calc(-100vh + 2.5em) 0 0 0;
+        padding: 100vh 0 2.5em 0;
+        border-radius: 0 0 18em 0 / 0 0 10em 0;
+        
+
+        width: 100%;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
+        flex-direction: column;
 
         gap: 1em;
-        padding: 2.5em;
         background-color: c.$color4;
-        margin: 0;
-
+        
         h1 {
             color: c.$color7;
             margin: 0 0 0.1em 0;
@@ -218,10 +244,11 @@
 }
 
 
-@media screen and (min-width:768px) and (max-width:1023px) {
+@media screen and (min-width:769px) and (max-width:1023px) {
 
     .Home {
         .Intro {
+            
             .Presentation {
                 max-width: 100%;
                 flex-direction: row;
@@ -234,7 +261,7 @@
 
 
         .Projects {
-
+            border-radius: 0 0 0 30em / 0 0 0 12em;
             .Projects_list {
                 width: 80%;
                 flex-direction: row;
@@ -258,7 +285,9 @@
 
     .Home {
         .Intro {
+            border-radius: 0 0 35em 0 / 0 0 17em 0;
             .Presentation {
+                
                 max-width: 70%;
                 flex-direction: row;
                 justify-content: space-around;
@@ -270,7 +299,7 @@
 
 
         .Projects {
-
+            border-radius: 0 0 0 50em / 0 0 0 15em;
             .Projects_list {
                 width: 90%;
                 flex-direction: row;
