@@ -1,0 +1,28 @@
+@use "colors" as c;
+
+
+.P404 {
+
+
+    background-color: c.$color7;
+    display: flex;
+    justify-content: center;
+    
+    flex-direction: column;
+
+    .Title {
+        font-size: 8em;
+        color: c.$color1;
+        margin: 0;
+        text-align: center;
+    }
+
+    .Description {
+        font-size: 2em;
+        color: c.$color2;
+        margin: 1em 0;
+        text-align: center;
+    }
+
+}
+

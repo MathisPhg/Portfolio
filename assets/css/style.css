@@ -365,6 +365,25 @@ footer p {
     overflow-y: scroll;
   }
 }
+.P404 {
+  background-color: #F3F3FC;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.P404 .Title {
+  font-size: 8em;
+  color: #7C4FFD;
+  margin: 0;
+  text-align: center;
+}
+.P404 .Description {
+  font-size: 2em;
+  color: #7C80FB;
+  margin: 1em 0;
+  text-align: center;
+}
+
 * {
   box-sizing: border-box;
 }
