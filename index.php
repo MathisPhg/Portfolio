@@ -17,7 +17,7 @@ require_once "services/Router.php";
 
 use Services\Router;
 
-$page = $_GET['page'] ?? 'chat';
+$page = $_GET['page'] ?? 'home';
 
 $router = new Router($page);
 
