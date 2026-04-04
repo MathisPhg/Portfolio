@@ -293,7 +293,7 @@ footer p {
   width: 80%;
   margin: 0 auto 0 auto;
   gap: 1em;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   padding: 0 1em 0 1em;
   border: 2px solid #EBE2F4;
@@ -362,7 +362,7 @@ footer p {
   }
   .Project .Info p {
     max-height: 55vh;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
 .P404 {
@@ -571,6 +571,147 @@ footer p {
   .Dashboard .Crud article {
     width: calc(33% - 2em);
     text-align: center;
+  }
+}
+.List {
+  background-color: #F3F3FC;
+  border-radius: 0 0 50vw 0/0 0 25vh 0;
+}
+.List section {
+  padding: 3em 10% 5em 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.List section h1 {
+  font-size: 2.5em;
+  margin: 0 0 0.5em 0;
+  color: #7C4FFD;
+}
+.List section h2 {
+  font-size: 2em;
+  margin: 0;
+  color: #7C80FB;
+}
+.List section h3 {
+  margin: 0;
+  padding: 0;
+  color: #7C80FB;
+}
+.List section h4 {
+  color: #A185F2;
+  margin: 0;
+}
+.List section .Title-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1em;
+}
+.List section .Title-Container a {
+  height: fit-content;
+}
+.List section .Title-Container .btn {
+  text-decoration: none;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 2px solid #7C4FFD;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.List section .Title-Container .btn:hover {
+  background-color: #7C4FFD;
+  color: white;
+}
+.List section article {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 1em;
+  border-radius: 1em;
+  width: 80vw;
+}
+.List section article img {
+  max-width: 50%;
+  border: 1px solid #D6CFFF;
+}
+.List section article p {
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1em;
+}
+.List section article p span {
+  background-color: #EBE2F4;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+.List section article div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.List section article div .btn {
+  text-decoration: none;
+  color: #A185F2;
+  font-weight: bold;
+  border: 2px solid #A185F2;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.List section article div .btn:hover {
+  background-color: #A185F2;
+  color: white;
+}
+.List section article div .Edit {
+  text-decoration: none;
+  color: #7C80FB;
+  font-weight: bold;
+  border: 2px solid #7C80FB;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.List section article div .Edit:hover {
+  background-color: #7C80FB;
+  color: white;
+}
+.List section article div .Delete {
+  text-decoration: none;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 2px solid #7C4FFD;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.List section article div .Delete:hover {
+  background-color: #7C4FFD;
+  color: white;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .List section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .List section article {
+    width: calc(50% - 2em);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .List section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .List section article {
+    width: calc(33.3333333333% - 2em);
+    height: stretch;
   }
 }
 * {

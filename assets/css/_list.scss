@@ -1,0 +1,231 @@
+@use "colors" as c;
+
+.List {
+
+    background-color: c.$color7;
+    border-radius: 0 0 50vw 0 / 0 0 25vh 0;
+
+
+    section {
+
+        padding: 3em 10% 5em 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0 0 0.5em 0;
+            color: c.$color1;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin: 0;
+            color: c.$color2;
+        }
+
+        h3 {
+            margin: 0;
+            padding: 0;
+            color: c.$color2;
+        }
+
+        h4 {
+            color: c.$color3;
+            margin: 0;
+        }
+
+        .Title-Container {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 1em;
+
+            a {
+                height: fit-content;
+            }
+
+
+            .btn {
+
+                text-decoration: none;
+                color: c.$color1;
+                font-weight: bold;
+                border: 2px solid c.$color1;
+                padding: 0.5em 1em;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+
+                &:hover {
+                    background-color: c.$color1;
+                    color: white;
+                }     
+            }  
+
+
+
+        }
+
+
+
+        article {
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 1em;
+            border-radius: 1em;
+            width: 80vw;
+
+            img {
+
+                max-width: 50%;
+                border: 1px solid c.$color5;
+
+            }
+
+            p {
+
+                overflow-x: auto;
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 1em;
+
+                span {
+
+                    background-color: c.$color6;
+                    text-align: center;
+                    padding: 0.5em;
+                    border-radius: 0.5em;
+
+                }
+
+            }
+
+            div {
+
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1em;
+
+                .btn {
+
+                    text-decoration: none;
+                    color: c.$color3;
+                    font-weight: bold;
+                    border: 2px solid c.$color3;
+                    padding: 0.5em 1em;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &:hover {
+                        background-color: c.$color3;
+                        color: white;
+                    }     
+                }           
+                
+                .Edit {
+
+                    text-decoration: none;
+                    color: c.$color2;
+                    font-weight: bold;
+                    border: 2px solid c.$color2;
+                    padding: 0.5em 1em;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &:hover {
+                        background-color: c.$color2;
+                        color: white;
+                    }     
+                }   
+
+                .Delete {
+
+                    text-decoration: none;
+                    color: c.$color1;
+                    font-weight: bold;
+                    border: 2px solid c.$color1;
+                    padding: 0.5em 1em;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &:hover {
+                        background-color: c.$color1;
+                        color: white;
+                    }     
+                } 
+            }  
+        }
+
+
+    }
+
+
+
+
+  
+}
+
+
+
+@media screen and (min-width:769px) and (max-width:1023px) {
+
+    .List {
+
+        section {
+
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+
+            article {
+
+                width: calc(100% / 2 - 2em);
+
+
+
+            }
+
+
+        }
+
+
+    }
+    
+}
+
+
+@media screen and (min-width:1024px) {
+
+    .List {
+
+        section {
+
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+
+            article {
+
+                width: calc(100% / 3 - 2em);
+                height: stretch;
+
+
+
+            }
+
+
+        }
+
+
+    }
+    
+}
+    
+
+

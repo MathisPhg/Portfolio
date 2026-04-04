@@ -1,4 +1,53 @@
 <main class="Createdit" >
 
+    <section class="Form_createdit">
+
+    <h1> <?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?> un projet</h1>
+
+
+    <form action="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" method="POST">
+
+    <input type="text" id="title" name="title">
+
+    <input type="text" id="content" name="content">
+
+    <label for="category">Categories</label>
+    <select name="category" id="category" required>
+
+        <option value="" selected>--Selectioner--</option>
+        <option value="1">Category 1</option>
+        <option value="2">Category2</option>
+
+
+    </select>
+    
+    <label for="Skills">Compétences</label>
+    <input type="">
+
+    <label for="Project_Images">Ajouter des images</label>
+    <input type="file" id="Project_Images" name="Project_Images" accept="image/*" multiple >
+
+    <button type="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
+
+
+
+    </form>
+
+    </section>
+
+    <section class="Picture">
+
+        <h2>Picture</h2>
+
+        <img src="assets/images/imagePlaceholder.jpg" alt="">
+        <img src="assets/images/imagePlaceholder.jpg" alt="">
+        <img src="assets/images/imagePlaceholder.jpg" alt="">
+        <img src="assets/images/imagePlaceholder.jpg" alt="">
+        <img src="assets/images/imagePlaceholder.jpg" alt="">
+        <img src="assets/images/imagePlaceholder.jpg" alt="">
+
+
+    </section>
+
 
 </main>
