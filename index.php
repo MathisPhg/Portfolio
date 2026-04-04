@@ -5,7 +5,7 @@
 
 
 
-$content = "views/home/home.phtml";
+$content = "views/project/project.phtml";
 $title = "test";
 
 include ("views/layout.phtml");

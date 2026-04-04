@@ -37,7 +37,7 @@ header div .btn:hover {
 }
 
 footer {
-  z-index: 0;
+  z-index: -1;
   position: relative;
   margin: calc(-100vh + 2em) 0 0 0;
   padding: 100vh 0 2em 0;
@@ -93,8 +93,8 @@ footer p {
   text-align: left;
 }
 .Home .Intro .Presentation img {
-  width: 25em;
-  height: 25em;
+  width: 100%;
+  max-width: 25em;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -216,7 +216,7 @@ footer p {
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
   .Home .Intro .Presentation {
-    max-width: 100%;
+    max-width: 90%;
     flex-direction: row;
     justify-content: space-around;
     gap: 2em;
@@ -261,6 +261,110 @@ footer p {
     width: calc(33% - 2em);
   }
 }
+.Project {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}
+.Project .Image {
+  background-color: #F3F3FC;
+  position: relative;
+  z-index: 1;
+  position: relative;
+  margin: 0 0 calc(-35vh + 3em) 0;
+  padding: 1.5em 10% 35vh 10%;
+  border-radius: 0 0 0 15em/0 0 0 10em;
+}
+.Project .Image .Selected_image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+.Project .Image .Selected_image img {
+  width: 80%;
+  max-width: 50vh;
+  border: 2px solid #EBE2F4;
+}
+.Project .Image .Image_list {
+  display: flex;
+  width: 80%;
+  margin: 0 auto 0 auto;
+  gap: 1em;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 0 1em 0 1em;
+  border: 2px solid #EBE2F4;
+}
+.Project .Image .Image_list img {
+  width: 40%;
+  object-fit: fill;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.Project .Image .Image_list img:hover {
+  transform: scale(1.05);
+}
+.Project .Info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  padding: 5em 10% 7em 10%;
+  border-radius: 0 15em 0 15em/0 12em 0 12em;
+  background-color: #EBE2F4;
+}
+.Project .Info .Title {
+  font-size: 2em;
+  font-weight: bold;
+}
+.Project .Info .Description {
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+@media screen and (min-width: 1024px) {
+  .Project {
+    flex-direction: row;
+    justify-content: none;
+    padding: 0 0 0 0;
+  }
+  .Project .Image {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    z-index: 2;
+    padding: 0;
+    margin: 0 0 0 0;
+    border-radius: 0 20vw 0 0/0 25vh 0 0;
+  }
+  .Project .Image .Image_list {
+    max-width: 90%;
+    padding: 0 50 0 0%;
+  }
+  .Project .Image .Image_list img {
+    width: 25%;
+  }
+  .Project .Info {
+    width: 100%;
+    z-index: 1;
+    border-radius: 0 0 20vw 0/0 0 25vh 0;
+    margin: 0 0 0 calc(-50vw + 2em);
+    position: static;
+    padding: 5em 3% 0 50vw;
+  }
+  .Project .Info p {
+    max-height: 55vh;
+    overflow-y: scroll;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -268,6 +372,13 @@ footer p {
 body {
   background-color: #F3F3FC;
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

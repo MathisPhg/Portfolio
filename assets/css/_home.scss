@@ -55,8 +55,8 @@
             }
 
             img {
-                width: 25em;
-                height: 25em;
+                width: 100%;
+                max-width: 25em;
                 border-radius: 50%;
                 object-fit: cover;
             }
@@ -250,7 +250,7 @@
         .Intro {
             
             .Presentation {
-                max-width: 100%;
+                max-width: 90%;
                 flex-direction: row;
                 justify-content: space-around;
                 gap: 2em;
