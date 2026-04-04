@@ -2,14 +2,12 @@
 
 namespace Controllers;
 
-
-class HomeController
-{
+class ErrorController{
 
     public function index(): void
     {
-        $content = "views/home/home.phtml";
-        $title = "Accueil";
+        $content = "views/error/error.phtml";
+        $title = "Erreur";
 
         include ("views/layout.phtml");
     }

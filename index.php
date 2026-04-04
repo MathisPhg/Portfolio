@@ -10,14 +10,17 @@ spl_autoload_register(function($classname){
     }
 });
 
+require_once "configs/settings.php";
+require_once "services/Router.php";
 
 
 
+use Services\Router;
+
+$page = $_GET['page'] ?? 'chat';
+
+$router = new Router($page);
+
+$router->getController();
 
 
-
-
-$content = "views/404/404.phtml";
-$title = "test";
-
-include ("views/layout.phtml");

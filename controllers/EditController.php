@@ -1,16 +1,15 @@
 <?php
 
+
 namespace Controllers;
 
-class CreateController extends AbstractFormController
+class EditController extends AbstractFormController
 {
 
     public function index(string $title = ""): void
     {
+        parent::index("Modifier");
         
-        parent::index("Créer");
-        
-
     }
 
 }
