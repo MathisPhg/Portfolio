@@ -1,0 +1,95 @@
+@use "colors" as c;
+
+
+.Login {
+
+    background-color: c.$color7;
+    display: flex;
+
+    z-index: 1;
+    border-radius: 0 0 0 60vw / 0 0 0 30vh;
+
+    .Login_form {
+        background-color: c.$color5;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        margin: auto;
+        padding: 2em;
+        width: 80vw;
+        border-radius: 15em 0.5em 9em 0.5em / 8em 0.5em 5em 0.5em;
+
+
+        form {
+
+            display: flex;
+            flex-direction: column;
+
+            input {
+
+                border: 1px solid c.$color4;
+                border-radius: 5px;
+
+                margin-bottom: 5%;
+                padding: 0.5em;
+
+                &:focus {
+                    border: 2px solid c.$color1;
+                    outline: none;
+                }
+                
+
+            }
+
+            .btn {
+                
+                text-decoration: none;
+                text-align: center;
+                color: c.$color1;
+                font-weight: bold;
+                border: 2px solid c.$color1;
+                padding: 1em 2em;
+                margin: 1em 0 0 0;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+
+                &:hover {
+                    background-color: c.$color1;
+                    color: white;
+                }
+
+            }
+        }
+
+    }
+
+}
+
+
+
+@media screen and (min-width:1024px) {
+
+    .Login {
+
+        .Login_form {
+            border-radius: 25vw 1vw 25vw 0.5em / 15vh 1vh 15vh 0.5em;
+            width: 50vw;
+            padding: 5vw;
+
+            h1 {
+
+                font-size: 3em;
+
+            }
+
+        }
+
+
+        form {
+
+            max-width: 25vw;
+            margin: auto;
+
+        }
+    }
+
+
+}
