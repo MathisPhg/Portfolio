@@ -1,0 +1,114 @@
+<?php
+
+namespace Repositories;
+
+use Modeles\Project;
+use Services\Database;
+
+class ProjectRepository
+{
+    private \PDO $pdo;
+
+    private Database $db;
+    public function __construct()
+    {
+        $this->db = new Database();
+        $this->pdo = $this->db->getConnection();
+    }
+
+    public function findAll(): array|bool
+    {
+        $stmt = $this->pdo->query(
+            'SELECT * FROM project 
+            ORDER BY name'
+        );
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+
+    }
+
+    public function findById(int $id): array|bool
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT * FROM project 
+            WHERE id = :id'
+        );
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    // public function findByCategory(int $idCategory): array
+    // {
+    //     $stmt = $this->pdo->prepare('SELECT * FROM project WHERE id_category = :id_category ORDER BY name');
+    //     $stmt->bindParam(":id_category", $idCategory, \PDO::PARAM_INT);
+    //     $stmt->execute();
+    //     $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    //     return $result;
+
+    // }
+
+    public function create(Project $project): bool
+    {
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO project (name, description, id_category) 
+            VALUES (:name, :description, :id_category)'
+        );
+        $stmt->bindValue(":name", $project->getName(), \PDO::PARAM_STR);
+        $stmt->bindValue(":description", $project->getDescription(), \PDO::PARAM_STR);
+        $stmt->bindValue(":id_category", $project->getIdCategory(), \PDO::PARAM_INT);
+        $result = $stmt->execute();
+        return $result;
+    }
+
+    public function update(Project $project): bool
+    {
+        $stmt = $this->pdo->prepare(
+            'UPDATE project 
+            SET name = :name, description = :description, id_category = :id_category 
+            WHERE id = :id'
+        );
+        $stmt->bindValue(":name", $project->getName(), \PDO::PARAM_STR);
+        $stmt->bindValue(":description", $project->getDescription(), \PDO::PARAM_STR);
+        $stmt->bindValue(":id_category", $project->getIdCategory(), \PDO::PARAM_INT);
+        $stmt->bindValue(":id", $project->getId(), \PDO::PARAM_INT);
+        $result = $stmt->execute();
+        return $result;
+
+    }
+
+    public function delete(int $id): bool
+    {
+        $stmt = $this->pdo->prepare(
+            'DELETE FROM project 
+            WHERE id = :id'
+        );
+        $stmt->bindParam(":id", $id, \PDO::PARAM_INT);
+        $result = $stmt->execute();
+        return $result;
+    }
+
+    // public function addSkill(int $idProject, int $idSkill): bool
+    // {
+    //     $stmt = $this->pdo->prepare(
+    //         'INSERT INTO project_skill (id_project, id_skill) VALUES (:id_project, :id_skill)'
+    //     );
+    //     $stmt->bindParam(":id_project", $idProject, \PDO::PARAM_INT);
+    //     $stmt->bindParam(":id_skill", $idSkill, \PDO::PARAM_INT);
+    //     $result = $stmt->execute();
+    //     return $result;
+    // }
+
+    // public function removeSkill(int $idProject, int $idSkill): bool
+    // {
+    //     $stmt = $this->pdo->prepare(
+    //         'DELETE FROM project_skill WHERE id_project = :id_project AND id_skill = :id_skill'
+    //     );
+    //     $stmt->bindParam(":id_project", $idProject, \PDO::PARAM_INT);
+    //     $stmt->bindParam(":id_skill", $idSkill, \PDO::PARAM_INT);
+    //     $result = $stmt->execute();
+    //     return $result;
+    // }
+
+}
