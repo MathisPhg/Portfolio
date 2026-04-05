@@ -4,16 +4,27 @@ namespace Modeles;
 
 class Profil
 {
-    private ?int $id = null;
-    private string $name = '';
-    private string $description = '';
-    private string $email = '';
-    private string $phone = '';
-    private string $github = '';
-    private string $cv = '';
+    private int $id;
+    private string $name ;
+    private string $description;
+    private string $email;
+    private string $phone;
+    private string $github;
+    private string $cv;
     private ?int $id_picture = null;
 
-    public function getId(): ?int
+    public function __construct(int $id , string $name, string $description, string $email, string $phone, string $github, string $cv, ?int $id_picture = null) {
+        $this->id = $id;
+        $this->name = $name;
+        $this->description = $description;
+        $this->email = $email;
+        $this->phone = $phone;
+        $this->github = $github;
+        $this->cv = $cv;
+        $this->id_picture = $id_picture;
+    }
+
+    public function getId(): int
     {
         return $this->id;
     }
@@ -53,7 +64,7 @@ class Profil
         return $this->id_picture;
     }
 
-    public function setId(?int $id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }

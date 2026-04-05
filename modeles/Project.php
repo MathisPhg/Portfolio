@@ -4,12 +4,20 @@ namespace Modeles;
 
 class Project
 {
-    private ?int $id = null;
-    private string $name = '';
-    private string $description = '';
-    private int $id_category = 0;
+    private int $id;
+    private string $name;
+    private string $description;
+    private int $id_category;
 
-    public function getId(): ?int
+    public function __construct(int $id, string $name, string $description, int $id_category)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->description = $description;
+        $this->id_category = $id_category;
+    }
+
+    public function getId(): int
     {
         return $this->id;
     }
@@ -29,7 +37,7 @@ class Project
         return $this->id_category;
     }
 
-    public function setId(?int $id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }

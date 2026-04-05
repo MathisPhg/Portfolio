@@ -17,7 +17,7 @@ class CategoryRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function findAll(): array|bool
+    public function getAll(): array|bool
     {
         $stmt = $this->pdo->query(
             'SELECT * FROM category 
@@ -25,9 +25,14 @@ class CategoryRepository
         );
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
+
+
+        
+
+
     }
 
-    public function findById(int $id): array|bool
+    public function getById(int $id): array|bool
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM category 

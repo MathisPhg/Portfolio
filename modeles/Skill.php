@@ -4,11 +4,18 @@ namespace Modeles;
 
 class Skill
 {
-    private ?int $id = null;
-    private string $name = '';
-    private int $level = 0;
+    private int $id;
+    private string $name;
+    private int $level;
 
-    public function getId(): ?int
+    public function __construct(int $id, string $name, int $level)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->level = $level;
+    }
+
+    public function getId(): int
     {
         return $this->id;
     }
@@ -23,7 +30,7 @@ class Skill
         return $this->level;
     }
 
-    public function setId(?int $id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }

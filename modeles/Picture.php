@@ -4,11 +4,18 @@ namespace Modeles;
 
 class Picture
 {
-    private ?int $id = null;
-    private string $link = '';
-    private int $id_project = 0;
+    private int $id;
+    private string $link;
+    private ?int $id_project;
 
-    public function getId(): ?int
+    public function __construct(int $id, string $link, ?int $id_project = null)
+    {
+        $this->id = $id;
+        $this->link = $link;
+        $this->id_project = $id_project;
+    }
+
+    public function getId(): int
     {
         return $this->id;
     }
@@ -18,12 +25,12 @@ class Picture
         return $this->link;
     }
 
-    public function getIdProject(): int
+    public function getIdProject(): ?int
     {
         return $this->id_project;
     }
 
-    public function setId(?int $id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -33,7 +40,7 @@ class Picture
         $this->link = $link;
     }
 
-    public function setIdProject(int $id_project): void
+    public function setIdProject(?int $id_project): void
     {
         $this->id_project = $id_project;
     }

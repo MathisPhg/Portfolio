@@ -16,7 +16,7 @@ class ProjectRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function findAll(): array|bool
+    public function getAll(): array|bool
     {
         $stmt = $this->pdo->query(
             'SELECT * FROM project 
@@ -27,7 +27,7 @@ class ProjectRepository
 
     }
 
-    public function findById(int $id): array|bool
+    public function getById(int $id): array|bool
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM project 
@@ -39,7 +39,7 @@ class ProjectRepository
         return $result;
     }
 
-    // public function findByCategory(int $idCategory): array
+    // public function getByCategory(int $idCategory): array
     // {
     //     $stmt = $this->pdo->prepare('SELECT * FROM project WHERE id_category = :id_category ORDER BY name');
     //     $stmt->bindParam(":id_category", $idCategory, \PDO::PARAM_INT);

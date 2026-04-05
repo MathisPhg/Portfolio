@@ -4,10 +4,16 @@ namespace Modeles;
 
 class Category
 {
-    private ?int $id = null;
-    private string $name = '';
+    private int $id;
+    private string $name;
 
-    public function getId(): ?int
+    public function __construct(int $id, string $name)
+    {
+        $this->id = $id;
+        $this->name = $name;
+    }
+
+    public function getId(): int
     {
         return $this->id;
     }
@@ -17,7 +23,7 @@ class Category
         return $this->name;
     }
 
-    public function setId(?int $id): void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -27,4 +33,3 @@ class Category
         $this->name = $name;
     }
 }
-                

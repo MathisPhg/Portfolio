@@ -16,7 +16,7 @@ class ProfilRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function findById(int $id): array|bool
+    public function getById(int $id): array|bool
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM profil 

@@ -17,7 +17,7 @@ class PictureRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function findById(int $id): array|bool
+    public function getById(int $id): array|bool
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM picture 
@@ -29,7 +29,7 @@ class PictureRepository
         return $result ;
     }
 
-    public function findByProject(int $idProject): array|bool
+    public function getByProject(int $idProject): array|bool
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM picture 
