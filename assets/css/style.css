@@ -8,22 +8,28 @@ header {
   border-bottom: 2px solid #D6CFFF;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-header div {
+header .Container {
   display: flex;
   width: 80%;
   margin: auto;
   align-items: center;
   justify-content: space-between;
 }
-header div h1 {
+header .Container h1 {
   font-size: 2.5em;
   margin-bottom: 0.5em;
 }
-header div a {
+header .Container a {
   text-decoration: none;
   color: black;
 }
-header div .btn {
+header .Container .Btn_Container {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+header .Container .Btn_Container .btn {
   text-decoration: none;
   color: #7C4FFD;
   font-weight: bold;
@@ -32,7 +38,7 @@ header div .btn {
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
-header div .btn:hover {
+header .Container .Btn_Container .btn:hover {
   background-color: #7C4FFD;
   color: white;
 }
@@ -478,8 +484,16 @@ footer p {
   z-index: 2;
   position: relative;
 }
-.Dashboard .Profil_info img {
+.Dashboard .Profil_info article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Dashboard .Profil_info article img {
+  object-fit: cover;
+  max-height: 60vh;
   max-width: 60vw;
+  border-radius: 25%;
 }
 .Dashboard .Crud {
   width: 100%;
@@ -948,6 +962,7 @@ footer p {
 }
 * {
   box-sizing: border-box;
+  font-family: Roboto, sans-serif;
 }
 
 body {

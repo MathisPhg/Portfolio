@@ -3,12 +3,17 @@
 
 namespace Controllers;
 
-class EditController extends AbstractFormController
+class EditController extends AbstractController
 {
 
-    public function index(string $title = ""): void
+    public function index(): void
     {
-        parent::index("Modifier");
+        $layoutName = $this->layoutName();
+
+        $content = "views/create/createdit.phtml";
+        $title = "Modifier";
+
+        include ("views/layout.phtml");
         
     }
 

@@ -11,9 +11,9 @@ class CategoryRepository
     private \PDO $pdo;
     private Database $db;
 
-    public function __construct(Database $database)
+    public function __construct()
     {
-        $this->db = $database;
+        $this->db = new Database();
         $this->pdo = $this->db->getConnection();
     }
 
@@ -52,6 +52,16 @@ class CategoryRepository
     
         $category = new Category($result['id'], $result['name']);
         return $category;
+    }
+
+
+    public function getNumber(): int 
+    {
+        $stmt = $this->pdo->query(
+            'SELECT COUNT(*) FROM category'
+        );
+        $result = $stmt->fetchColumn();
+        return (int)$result;
     }
 
     public function create(Category $category): bool

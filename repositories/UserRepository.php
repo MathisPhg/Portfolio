@@ -17,7 +17,7 @@ class UserRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function getId(int $id): ?User
+    public function getById(int $id): ?User
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM user 
@@ -33,7 +33,7 @@ class UserRepository
         return $user;
     }
 
-    public function getName(string $name): ?User
+    public function getByName(string $name): ?User
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM user 

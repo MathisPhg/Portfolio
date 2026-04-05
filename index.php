@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 spl_autoload_register(function($classname){
     $path = lcfirst(str_replace('\\','/',$classname));
@@ -13,9 +13,9 @@ spl_autoload_register(function($classname){
 require_once "configs/settings.php";
 require_once "services/Router.php";
 
-
-
 use Services\Router;
+
+
 
 $page = $_GET['page'] ?? 'home';
 

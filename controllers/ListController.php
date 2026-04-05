@@ -3,9 +3,11 @@
 namespace Controllers;
 
 
-class ListController {
+class ListController extends AbstractController {
 
-    public function index() {
+    public function index(): void  {
+        $layoutName = $this->layoutName();
+
         $content = "views/list/list.phtml";
         $title = "Liste";
 

@@ -67,6 +67,14 @@ class SkillRepository
     
         }
 
+    public function getNumber(): int 
+    {
+        $stmt = $this->pdo->query(
+            'SELECT COUNT(*) FROM skill'
+        );
+        $result = $stmt->fetchColumn();
+        return (int)$result;
+    }
     public function create(Skill $skill): bool
     {
         $stmt = $this->pdo->prepare(

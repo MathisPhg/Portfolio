@@ -9,19 +9,19 @@
 
             <h2>Mon Profil</h2>
 
-            <img src="assets/images/profil.webp" alt="Profil" class="profil">
+            <img src="<?= $picture->getLink() ?>" alt="Profil" class="profil">
 
         </article>
 
         <article>
 
-            <h3>Prenom Nom</h3>
+            <h3><?= $profil->getName() ?></h3>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, maiores, illo similique tempora cum eveniet explicabo dolorum quaerat praesentium quidem porro velit! At illo animi non nam sequi quod ab.</p>
+            <p><?= $profil->getDescription() ?></p>
 
-            <p>email :prenom.nom@example.com</p>
+            <p>email :<?= $profil->getEmail() ?></p>
 
-            <p>Telephone : 01 23 45 67 89</p>
+            <p>Telephone : <?= $profil->getPhone() ?></p>
 
         </article>
 
@@ -35,7 +35,7 @@
             <h2>
                 Projects
             </h2>
-            <h1>4</h1>
+            <h1><?= $projectNb ?></h1>
 
             <div class="link">
 
@@ -51,7 +51,7 @@
             <h2>
                 skills
             </h2>
-            <h1>4</h1>
+            <h1><?= $skillNb ?></h1>
 
             <div class="link">
 
@@ -68,7 +68,7 @@
                 Categories
             </h2>
 
-            <h1>4</h1>
+            <h1><?= $categoryNb ?></h1>
 
             <div class="link">
 

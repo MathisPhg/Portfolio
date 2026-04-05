@@ -10,10 +10,19 @@
 <body>
 
     <header>
-        <div>
-            <a href="?page=home"><h1>Prenom Nom</h1></a>
+        <div class="Container">
+            <a href="?page=home"><h1><?= htmlspecialchars($layoutName); ?></h1></a>
 
-            <a href="?page=login" class="btn">connexion</a>
+            <?php if (!empty($_SESSION["user"])): ?>
+                <div class="Btn_Container">
+                    <a href="?page=dashboard" class="btn">Dashboard</a>
+                    <a href="?page=logout" class="btn">Déconnexion</a>
+                </div>
+            <?php else: ?>
+                <a href="?page=login" class="btn">Connexion</a>
+            <?php endif; ?>
+
+
         </div>
     </header>
 
@@ -21,7 +30,7 @@
     
     <footer>
 
-        <p>&copy; Prenom Nom | 2026</p>
+        <p>&copy; <?= htmlspecialchars($layoutName); ?> | 2026</p>
         
     </footer>
 

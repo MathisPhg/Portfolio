@@ -15,7 +15,9 @@
             
             <input type="password" id="password" name="password" required>
 
-            <button type="submit" class="btn">Se connecter</button>
+            <button type="submit" name="submit" class="btn">Se connecter</button>
+
+            <p class="Error"><?=  !empty($error) ? $error : '' ?></p>
 
         </form>
 

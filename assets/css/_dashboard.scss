@@ -24,10 +24,18 @@
         z-index: 2;
         position: relative;
 
-        img {
+        article {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            img {
 
-            max-width: 60vw;
+                object-fit: cover;
+                max-height: 60vh;
+                max-width: 60vw;
+                border-radius: 25%;
 
+            }
         }
 
 

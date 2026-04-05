@@ -9,12 +9,20 @@ class Project
     private string $description;
     private int $id_category;
 
+    private int $number;
+
     public function __construct(int $id, string $name, string $description, int $id_category)
     {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->id_category = $id_category;
+        $this->number = 0;
+    }
+
+    public function getNumber(): int
+    {
+        return $this->number;
     }
 
     public function getId(): int
@@ -35,6 +43,11 @@ class Project
     public function getIdCategory(): int
     {
         return $this->id_category;
+    }
+
+    public function setNumber(int $number): void
+    {
+        $this->number = $number;
     }
 
     public function setId(int $id): void

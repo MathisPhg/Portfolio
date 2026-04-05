@@ -2,10 +2,12 @@
 
 namespace Controllers;
 
-class ErrorController{
+class ErrorController extends AbstractController{
 
     public function index(): void
     {
+        $layoutName = $this->layoutName();
+
         $content = "views/error/error.phtml";
         $title = "Erreur";
 

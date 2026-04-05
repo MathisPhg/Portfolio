@@ -9,7 +9,7 @@ header {
     border-bottom: 2px solid c.$color5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     
-    div {
+    .Container {
         display: flex;
         width: 80%;
         margin: auto;
@@ -27,22 +27,31 @@ header {
             color: black;
         }
 
-        .btn {
+        .Btn_Container {
+            display: flex;
+            gap: 1em;
+            flex-wrap: wrap;
+            justify-content: flex-end;
 
-            text-decoration: none;
-            color: c.$color1;
-            font-weight: bold;
-            border: 2px solid c.$color1;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            .btn {
 
-            &:hover {
-                background-color: c.$color1;
-                color: white;
+                text-decoration: none;
+                color: c.$color1;
+                font-weight: bold;
+                border: 2px solid c.$color1;
+                padding: 0.5em 1em;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+
+                &:hover {
+                    background-color: c.$color1;
+                    color: white;
+                }
+
             }
-
         }
+
+
 
     }
 

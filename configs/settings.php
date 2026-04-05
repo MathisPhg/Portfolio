@@ -33,4 +33,8 @@ const AVAILABLE_ROUTES = [
         'controller' => 'ErrorController',
         'method' => 'index'
     ],
+    'logout' => [
+        'controller' => 'LogoutController',
+        'method' => 'index'
+    ],
 ];

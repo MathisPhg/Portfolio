@@ -2,13 +2,17 @@
 
 namespace Controllers;
 
-class CreateController extends AbstractFormController
+class CreateController extends AbstractController
 {
 
-    public function index(string $title = ""): void
+    public function index(): void
     {
-        
-        parent::index("Créer");
+        $layoutName = $this->layoutName();
+
+        $content = "views/create/createdit.phtml";
+        $title = "Créer";
+
+        include ("views/layout.phtml");
         
 
     }

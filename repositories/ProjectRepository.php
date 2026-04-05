@@ -50,6 +50,15 @@ class ProjectRepository
         return $project;
     }
 
+    public function getNumber(): int 
+    {
+        $stmt = $this->pdo->query(
+            'SELECT COUNT(*) FROM project'
+        );
+        $result = $stmt->fetchColumn();
+        return (int)$result;
+    }
+
     // public function getByCategory(int $idCategory): array
     // {
     //     $stmt = $this->pdo->prepare('SELECT * FROM project WHERE id_category = :id_category ORDER BY name');
