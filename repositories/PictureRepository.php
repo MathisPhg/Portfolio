@@ -45,14 +45,32 @@ class PictureRepository
         $stmt->execute();
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        if ($result === false) {
-            return null;
-        }
+
         $picturesList = [];
         foreach ($result as $row) {
             $picturesList[] = new Picture($row['id'], $row['link'], $row['id_project']);
         }
         return $picturesList;
+    }
+
+    public function getFirst(int $projectId): ?Picture {
+        $stmt = $this->pdo->prepare(
+            'SELECT * FROM picture 
+            WHERE id_project = :id_project
+            ORDER BY id ASC
+            LIMIT 1'
+        );
+        $stmt->bindParam(":id_project", $projectId, \PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if ($result === false) {
+            return null;
+        }
+        
+        $picture = new Picture($result['id'], $result['link'], $result['id_project']);
+
+        return $picture;
     }
 
     public function create(Picture $picture): bool

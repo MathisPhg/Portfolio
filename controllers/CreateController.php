@@ -16,6 +16,11 @@ class CreateController extends AbstractController
     public function index(): void
     {
 
+        if (empty($_SESSION["user"])) {
+            header("Location: /?page=home");
+            exit();
+        }
+
 
         if (isset($_POST["submit"])) {
             if (isset($_POST["title"]) && isset($_POST["content"]) && isset($_POST["category"]) && isset($_POST["skills"]) && isset($_FILES["Project_Images"]) ) {
@@ -65,7 +70,7 @@ class CreateController extends AbstractController
             }
         }
 
-        
+
 
 
         $categoryRepository = new CategoryRepository();

@@ -3,52 +3,70 @@
     <section>
         <h1>Liste</h1>
 
+
+        <?php switch ($_GET["list"] ?? "") : case "project": ?>
+
         <div class="Title-Container">
             <h2>Projets</h2>
             <a href="?page=create" class="btn">Créer</a>
         </div>
 
 
+        <?php foreach ($projects as $project) : ?>
+            <article class="Object">
+                <img src="<?= htmlspecialchars($picture[$project->getId()]->getLink()) ?>" alt="">
+                <h3><?= htmlspecialchars($project->getName()) ?></h3>
+                <p>
+                    
+                    <?php if (isset($categories[$project->getIdCategory()])): ?>
+                        <span><?= htmlspecialchars($categories[$project->getIdCategory()]->getName()) ?></span>
+                    <?php endif; ?>
+                </p>
+                <div>
+                    <a href="?page=project&list=project&id=<?= htmlspecialchars($project->getId()) ?>" class="btn">voir</a>
+                    <a href="?page=edit&list=project&id=<?= htmlspecialchars($project->getId()) ?>" class="Edit">Modifier</a>
+                    <a href="?page=list&list=project&delete=<?= htmlspecialchars($project->getId()) ?>" class="Delete">Supprimer</a>
+                </div>
 
-        <article class="Object">
-            <img src="assets/images/imagePlaceholder.jpg" alt="">
-            <h4>Project Title</h4>
-            <p> <span>Category 1</span> <span>Category 2</span></p>
-            <div>
-                <a href="?page=project" class="btn">voir</a>
-                <a href="?page=edit" class="Edit">Modifier</a>
-                <a href="?page=list" class="Delete">Supprimer</a>
+            </article>
+        <?php endforeach; ?>
+
+        <?php break; ?>
+
+
+        <?php case "category": ?>
+            <div class="Title-Container">
+                <h2>Catégories</h2>
+                <a href="?page=create" class="btn">Créer</a>
             </div>
 
-        </article>
 
-        <article class="Object">
-            <img src="assets/images/imagePlaceholder.jpg" alt="">
-            <h4>Project Title</h4>
-            <p> <span>Category 1</span> <span>Category 2</span></p>
-            <div>
-                <a href="?page=project" class="btn">voir</a>
-                <a href="?page=edit" class="Edit">Modifier</a>
-                <a href="?page=list" class="Delete">Supprimer</a>
+
+
+            <?php break; ?>
+
+
+
+
+        <?php case "skill": ?>
+            <div class="Title-Container">
+                <h2>Compétences</h2>
+                <a href="?page=create" class="btn">Créer</a>
             </div>
 
-        </article>
 
-        <article class="Object">
-            <img src="assets/images/imagePlaceholder.jpg" alt="">
-            <h4>Project Title</h4>
-            <p> <span>Category 1</span> <span>Category 2</span></p>
-            <div>
-                <a href="?page=project" class="btn">voir</a>
-                <a href="?page=edit" class="Edit">Modifier</a>
-                <a href="?page=list" class="Delete">Supprimer</a>
-            </div>
 
-        </article>
+            <?php break; ?>
 
 
 
 
+
+
+        <?php default: ?>
+            <?php header("Location: /?page=dashboard"); ?>
+            <?php exit(); ?>
+        <?php endswitch; ?>
 
 
 

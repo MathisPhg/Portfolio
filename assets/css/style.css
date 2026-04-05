@@ -615,10 +615,6 @@ footer p {
   padding: 0;
   color: #7C80FB;
 }
-.List section h4 {
-  color: #A185F2;
-  margin: 0;
-}
 .List section .Title-Container {
   display: flex;
   justify-content: center;
@@ -648,9 +644,14 @@ footer p {
   border-radius: 1em;
   width: 80vw;
 }
+.List section article h4 {
+  color: #A185F2;
+  margin: 0;
+}
 .List section article img {
   max-width: 50%;
   border: 1px solid #D6CFFF;
+  margin: 0 25% 1em 25%;
 }
 .List section article p {
   overflow-x: auto;
@@ -727,7 +728,6 @@ footer p {
   }
   .List section article {
     width: calc(33.3333333333% - 2em);
-    height: stretch;
   }
 }
 .Createdit {

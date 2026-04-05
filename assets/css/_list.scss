@@ -32,10 +32,7 @@
             color: c.$color2;
         }
 
-        h4 {
-            color: c.$color3;
-            margin: 0;
-        }
+
 
         .Title-Container {
 
@@ -74,15 +71,22 @@
 
         article {
 
+
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             padding: 1em;
             border-radius: 1em;
             width: 80vw;
+            
+            h4 {
+                color: c.$color3;
+                margin: 0;
+            }
 
             img {
 
                 max-width: 50%;
                 border: 1px solid c.$color5;
+                margin: 0 25% 1em 25%;
 
             }
 
@@ -213,7 +217,7 @@
             article {
 
                 width: calc(100% / 3 - 2em);
-                height: stretch;
+                
 
 
 
