@@ -4,8 +4,9 @@
 
     <h1> <?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?> un projet</h1>
 
+    <p><?= isset($error) ? $error : "" ?></p>
 
-    <form action="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" method="POST">
+    <form action="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" method="POST" enctype="multipart/form-data">
 
     <label for="title">Titre</label>
     <input type="text" id="title" name="title">
@@ -17,83 +18,45 @@
     <select name="category" id="category" required>
 
         <option value="" selected>--Selectioner--</option>
-        <option value="1">Category 1</option>
-        <option value="2">Category2</option>
+        <?php foreach ($categories as $category) : ?>
+            <option value="<?= htmlspecialchars($category->getId()) ?>"><?= htmlspecialchars($category->getName()) ?></option>
+        <?php endforeach; ?>
 
 
     </select>
     
     <label for="skills">Compétences</label>
     <article class="Skills_Checkbox">
-            
-        <label class="Skills">
-            <input type="checkbox" name="skills" value="HTML/CSS">HTML/CSS
-        </label>
 
-        <label class="Skills">
-            <input type="checkbox" name="skills" value="JS">JS
-        </label>
-
-        <label class="Skills">
-            <input type="checkbox" name="skills" value="PHP">PHP
-        </label>
+        <?php foreach ($skills as $skill) : ?>
+            <label class="Skills">
+                <input type="checkbox" name="skills[]" value="<?= htmlspecialchars($skill->getId()) ?>"><?= htmlspecialchars($skill->getName()) ?>
+            </label>
+        <?php endforeach; ?>
 
     </article>
 
 
     <label for="Project_Images" class="Add_Image">Ajouter des images</label>
-    <input type="file" class="Project_Images" id="Project_Images" name="Project_Images" accept="image/*" multiple >
+    <input type="file" class="Project_Images" id="Project_Images" name="Project_Images[]" accept="image/*" multiple >
 
-    <button type="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
+    <button type="submit" name="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
 
 
 
     </form>
 
+    
+
     </section>
 
     <section class="Picture">
 
-        <h2>Picture</h2>
+        <h2>Pictures</h2>
 
-        <div>
-
-            <article>
-
-                <img src="assets/images/imagePlaceholder.jpg" alt="">
-                <a href="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" class="btn"> Supprimer</a>
-                
-            </article>
-
-            <article>
-
-                <img src="assets/images/imagePlaceholder.jpg" alt="">
-                <a href="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" class="btn"> Supprimer</a>
-                
-            </article>
-
-            <article>
-
-                <img src="assets/images/imagePlaceholder.jpg" alt="">
-                
-                <a href="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" class="btn"> Supprimer</a>
-                
-            </article>
-
-            <article>
-
-                <img src="assets/images/imagePlaceholder.jpg" alt="">
-                <a href="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" class="btn"> Supprimer</a>
-                
-            </article>
-
-
-
+        <div id="picture-preview">
 
         </div>
-
-
-
 
     </section>
 

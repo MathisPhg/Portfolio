@@ -4,14 +4,14 @@ namespace Modeles;
 
 class Project
 {
-    private int $id;
+    private ?int $id = null;
     private string $name;
     private string $description;
     private int $id_category;
 
     private int $number;
 
-    public function __construct(int $id, string $name, string $description, int $id_category)
+    public function __construct(?int $id, string $name, string $description, int $id_category)
     {
         $this->id = $id;
         $this->name = $name;

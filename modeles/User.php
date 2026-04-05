@@ -4,11 +4,11 @@ namespace Modeles;
 
 class User
 {
-    private int $id;
+    private ?int $id = null;
     private string $name;
     private string $password;
 
-    public function __construct(int $id, string $name, string $password)
+    public function __construct(?int $id, string $name, string $password)
     {
         $this->id = $id;
         $this->name = $name;

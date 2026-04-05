@@ -248,11 +248,13 @@
 
             div {
                 gap: 1em;
+                flex-direction: row;
+                flex-wrap: wrap;
                 
                 article {
                     
                     width: calc(100% / 2 - 1em);
-                    height: stretch;
+                    
 
                     img {
                         width: 100%;

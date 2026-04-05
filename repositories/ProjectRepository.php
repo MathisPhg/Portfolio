@@ -50,6 +50,24 @@ class ProjectRepository
         return $project;
     }
 
+    public function getByName(string $name): ?Project
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT * FROM project 
+            WHERE name = :name'
+        );
+        $stmt->bindValue(":name", $name, \PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if ($result === false) {
+            return null;
+        }
+        $project = new Project($result['id'], $result['name'], $result['description'], $result['id_category']);
+
+        return $project;
+    }
+
     public function getNumber(): int 
     {
         $stmt = $this->pdo->query(
@@ -109,26 +127,28 @@ class ProjectRepository
         return $result;
     }
 
-    // public function addSkill(int $idProject, int $idSkill): bool
-    // {
-    //     $stmt = $this->pdo->prepare(
-    //         'INSERT INTO project_skill (id_project, id_skill) VALUES (:id_project, :id_skill)'
-    //     );
-    //     $stmt->bindParam(":id_project", $idProject, \PDO::PARAM_INT);
-    //     $stmt->bindParam(":id_skill", $idSkill, \PDO::PARAM_INT);
-    //     $result = $stmt->execute();
-    //     return $result;
-    // }
+    public function addSkill(int $projectId, int $skillId): bool
+    {
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO project_skill (id_project, id_skill) 
+            VALUES (:id_project, :id_skill)'
+        );
+        $stmt->bindParam(":id_project", $projectId, \PDO::PARAM_INT);
+        $stmt->bindParam(":id_skill", $skillId, \PDO::PARAM_INT);
+        $result = $stmt->execute();
+        return $result;
+    }
 
-    // public function removeSkill(int $idProject, int $idSkill): bool
-    // {
-    //     $stmt = $this->pdo->prepare(
-    //         'DELETE FROM project_skill WHERE id_project = :id_project AND id_skill = :id_skill'
-    //     );
-    //     $stmt->bindParam(":id_project", $idProject, \PDO::PARAM_INT);
-    //     $stmt->bindParam(":id_skill", $idSkill, \PDO::PARAM_INT);
-    //     $result = $stmt->execute();
-    //     return $result;
-    // }
+    public function removeSkill(int $projectId, int $skillId): bool
+    {
+        $stmt = $this->pdo->prepare(
+            'DELETE FROM project_skill 
+            WHERE id_project = :id_project AND id_skill = :id_skill'
+        );
+        $stmt->bindParam(":id_project", $projectId, \PDO::PARAM_INT);
+        $stmt->bindParam(":id_skill", $skillId, \PDO::PARAM_INT);
+        $result = $stmt->execute();
+        return $result;
+    }
 
 }

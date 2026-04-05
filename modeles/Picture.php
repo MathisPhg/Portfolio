@@ -4,11 +4,11 @@ namespace Modeles;
 
 class Picture
 {
-    private int $id;
+    private ?int $id = null;
     private string $link;
     private ?int $id_project;
 
-    public function __construct(int $id, string $link, ?int $id_project = null)
+    public function __construct(?int $id, string $link, ?int $id_project = null)
     {
         $this->id = $id;
         $this->link = $link;

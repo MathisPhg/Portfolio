@@ -4,7 +4,7 @@ namespace Modeles;
 
 class Profil
 {
-    private int $id;
+    private ?int $id = null;
     private string $name ;
     private string $description;
     private string $email;
@@ -13,7 +13,7 @@ class Profil
     private string $cv;
     private ?int $id_picture = null;
 
-    public function __construct(int $id , string $name, string $description, string $email, string $phone, string $github, string $cv, ?int $id_picture = null) {
+    public function __construct(?int $id , string $name, string $description, string $email, string $phone, string $github, string $cv, ?int $id_picture = null) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;

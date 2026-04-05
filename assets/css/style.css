@@ -901,10 +901,11 @@ footer p {
   }
   .Createdit .Picture div {
     gap: 1em;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .Createdit .Picture div article {
     width: calc(50% - 1em);
-    height: stretch;
   }
   .Createdit .Picture div article img {
     width: 100%;

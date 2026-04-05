@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title); ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="text/javascript" href="assets/js/script.js" defer>
+    <script src="assets/js/script.js" defer></script>
+    <?php $jsPage = "assets/js/" . htmlspecialchars($_GET["page"] ?? "home") . ".js"; ?>
+    <?php if (file_exists($jsPage)): ?>
+        <script src="<?= $jsPage ?>" defer></script>
+    <?php endif; ?>
 </head>
 <body>
 

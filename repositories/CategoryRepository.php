@@ -28,7 +28,7 @@ class CategoryRepository
 
         $categorylist = [];
         foreach ($result as &$category) {
-            $categorylist = new Category( $category['id'], $category['name']);
+            $categorylist[] = new Category( $category['id'], $category['name']);
         }
 
         return $categorylist;
