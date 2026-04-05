@@ -17,7 +17,7 @@ class UserRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function getId(int $id): array|bool
+    public function getId(int $id): ?User
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM user 
@@ -26,10 +26,14 @@ class UserRepository
         $stmt->bindParam(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $result;
+        if ($result === false) {
+            return null;
+        }
+        $user = new User($result['id'], $result['name'], $result['password']);
+        return $user;
     }
 
-    public function getName(string $name): array|bool
+    public function getName(string $name): ?User
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM user 
@@ -38,7 +42,11 @@ class UserRepository
         $stmt->bindParam(":name", $name, \PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $result;
+        if ($result === false) {
+            return null;
+        }
+        $user = new User($result['id'], $result['name'], $result['password']);
+        return $user;
     }
 
 }

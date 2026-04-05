@@ -16,18 +16,23 @@ class ProjectRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function getAll(): array|bool
+    public function getAll(): array
     {
         $stmt = $this->pdo->query(
             'SELECT * FROM project 
             ORDER BY name'
         );
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+
+        $projectlist = [];
+        foreach ($result as &$project) {
+            $projectlist[] = new Project( $project['id'], $project['name'], $project['description'], $project['id_category']);
+        }
+        return $projectlist;
 
     }
 
-    public function getById(int $id): array|bool
+    public function getById(int $id): ?Project
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM project 
@@ -36,7 +41,13 @@ class ProjectRepository
         $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $result;
+
+        if ($result === false) {
+            return null;
+        }
+        $project = new Project($result['id'], $result['name'], $result['description'], $result['id_category']);
+
+        return $project;
     }
 
     // public function getByCategory(int $idCategory): array

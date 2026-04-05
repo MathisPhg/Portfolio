@@ -24,15 +24,19 @@ class CategoryRepository
             ORDER BY name'
         );
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
 
 
-        
+        $categorylist = [];
+        foreach ($result as &$category) {
+            $categorylist = new Category( $category['id'], $category['name']);
+        }
+
+        return $categorylist;
 
 
     }
 
-    public function getById(int $id): array|bool
+    public function getById(int $id): ?Category
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM category 
@@ -41,7 +45,13 @@ class CategoryRepository
         $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $result;
+
+        if (!$result) {
+            return null;
+        }
+    
+        $category = new Category($result['id'], $result['name']);
+        return $category;
     }
 
     public function create(Category $category): bool

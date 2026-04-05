@@ -25,10 +25,14 @@ class SkillRepository
         );
         $stmt->execute();
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+        $skillList = [];
+        foreach ($result as &$skill) {
+            $skillList[] = new Skill($skill['id'], $skill['name'], $skill['level']);
+        }
+        return $skillList;
     }
 
-    public function getById(int $id): array|bool
+    public function getById(int $id): ?Skill
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM skill 
@@ -37,10 +41,14 @@ class SkillRepository
         $stmt->bindParam(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $result;
+        if ($result === false) {
+            return null;
+        }
+        $skill = new Skill($result["id"], $result["name"], $result["level"]);
+        return $skill;
     }
 
-    public function getByProject(int $idProject): array|bool
+    public function getByProject(int $idProject): array
     {
         $stmt = $this->pdo->prepare(
             'SELECT s.* FROM skill s
@@ -51,8 +59,12 @@ class SkillRepository
         $stmt->bindParam(":id_project", $idProject, \PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
-
+        $skillList = [];
+        foreach ($result as &$skill) {
+            $skillList[] = new Skill($skill['id'], $skill['name'], $skill['level']);
+        }
+        return $skillList;
+    
         }
 
     public function create(Skill $skill): bool

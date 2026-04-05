@@ -16,7 +16,7 @@ class ProfilRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function getById(int $id): array|bool
+    public function getById(int $id): ?Profil
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM profil 
@@ -25,7 +25,13 @@ class ProfilRepository
         $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $result ;
+
+        if ($result === false) {
+            return null;
+        }
+        
+        $profil = new Profil($result['id'], $result['name'], $result['description'], $result['email'], $result['phone'], $result['github'], $result['cv'], $result['id_picture']);
+        return $profil;
     }
 
     public function update(Profil $profil): bool

@@ -17,7 +17,7 @@ class PictureRepository
         $this->pdo = $this->db->getConnection();
     }
 
-    public function getById(int $id): array|bool
+    public function getById(int $id): ?Picture
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM picture 
@@ -26,10 +26,16 @@ class PictureRepository
         $stmt->bindParam(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $result ;
+        if ($result === false) {
+            return null;
+        }
+        
+        $picture = new Picture($result['id'], $result['link'], $result['id_project']);
+
+        return $picture;
     }
 
-    public function getByProject(int $idProject): array|bool
+    public function getByProject(int $idProject): ?array
     {
         $stmt = $this->pdo->prepare(
             'SELECT * FROM picture 
@@ -38,7 +44,15 @@ class PictureRepository
         $stmt->bindParam(":id_project", $idProject, \PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+
+        if ($result === false) {
+            return null;
+        }
+        $picturesList = [];
+        foreach ($result as $row) {
+            $picturesList[] = new Picture($row['id'], $row['link'], $row['id_project']);
+        }
+        return $picturesList;
     }
 
     public function create(Picture $picture): bool
