@@ -7,9 +7,11 @@
 
     <form action="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" method="POST">
 
+    <label for="title">Titre</label>
     <input type="text" id="title" name="title">
 
-    <input type="text" id="content" name="content">
+    <label for="content">Contenue</label>
+    <textarea id="content" name="content"></textarea>
 
     <label for="category">Categories</label>
     <select name="category" id="category" required>
@@ -21,11 +23,26 @@
 
     </select>
     
-    <label for="Skills">Compétences</label>
-    <input type="">
+    <label for="skills">Compétences</label>
+    <article class="Skills_Checkbox">
+            
+        <label class="Skills">
+            <input type="checkbox" name="skills" value="HTML/CSS">HTML/CSS
+        </label>
 
-    <label for="Project_Images">Ajouter des images</label>
-    <input type="file" id="Project_Images" name="Project_Images" accept="image/*" multiple >
+        <label class="Skills">
+            <input type="checkbox" name="skills" value="JS">JS
+        </label>
+
+        <label class="Skills">
+            <input type="checkbox" name="skills" value="PHP">PHP
+        </label>
+
+    </article>
+
+
+    <label for="Project_Images" class="Add_Image">Ajouter des images</label>
+    <input type="file" class="Project_Images" id="Project_Images" name="Project_Images" accept="image/*" multiple >
 
     <button type="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
 
@@ -39,12 +56,43 @@
 
         <h2>Picture</h2>
 
-        <img src="assets/images/imagePlaceholder.jpg" alt="">
-        <img src="assets/images/imagePlaceholder.jpg" alt="">
-        <img src="assets/images/imagePlaceholder.jpg" alt="">
-        <img src="assets/images/imagePlaceholder.jpg" alt="">
-        <img src="assets/images/imagePlaceholder.jpg" alt="">
-        <img src="assets/images/imagePlaceholder.jpg" alt="">
+        <div>
+
+            <article>
+
+                <img src="assets/images/imagePlaceholder.jpg" alt="">
+                <a href="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" class="btn"> Supprimer</a>
+                
+            </article>
+
+            <article>
+
+                <img src="assets/images/imagePlaceholder.jpg" alt="">
+                <a href="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" class="btn"> Supprimer</a>
+                
+            </article>
+
+            <article>
+
+                <img src="assets/images/imagePlaceholder.jpg" alt="">
+                
+                <a href="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" class="btn"> Supprimer</a>
+                
+            </article>
+
+            <article>
+
+                <img src="assets/images/imagePlaceholder.jpg" alt="">
+                <a href="?page=<?= ($_GET["page"]==="create") ? "create" : "edit" ?>" class="btn"> Supprimer</a>
+                
+            </article>
+
+
+
+
+        </div>
+
+
 
 
     </section>

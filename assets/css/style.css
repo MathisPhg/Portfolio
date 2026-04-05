@@ -6,6 +6,7 @@ header {
   position: sticky;
   top: 0;
   border-bottom: 2px solid #D6CFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 header div {
   display: flex;
@@ -140,7 +141,7 @@ footer p {
   display: flex;
   flex-direction: column;
   align-items: right;
-  box-shadow: 10px 10px 30px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #F3F3FC;
   border-radius: 1em;
   padding: 3em;
@@ -190,6 +191,7 @@ footer p {
 .Home .Coordonnées h1 {
   color: #F3F3FC;
   margin: 0 0 0.1em 0;
+  text-align: center;
   font-size: 3em;
 }
 .Home .Coordonnées .btn {
@@ -712,6 +714,236 @@ footer p {
   .List section article {
     width: calc(33.3333333333% - 2em);
     height: stretch;
+  }
+}
+.Createdit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.Createdit .Form_createdit {
+  background-color: #F3F3FC;
+  padding: 2em 10% 5em 10%;
+  z-index: 2;
+  position: relative;
+  margin: calc(-50vh + 2em) 0 0 0;
+  padding: 50vh 10% 5em 10%;
+  border-radius: 0 0 50vw 0/0 0 20vh 0;
+}
+.Createdit .Form_createdit h1 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #7C4FFD;
+}
+.Createdit .Form_createdit form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em 10% 5em 10%;
+}
+.Createdit .Form_createdit form label {
+  font-weight: bold;
+  color: #7C4FFD;
+}
+.Createdit .Form_createdit form label input {
+  display: none;
+}
+.Createdit .Form_createdit form .Skills_Checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 0 0 2.5em 0;
+}
+.Createdit .Form_createdit form .Skills_Checkbox .Skills {
+  text-decoration: none;
+  text-align: center;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 2px solid #7C4FFD;
+  padding: 1em 2em;
+  margin: 0;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+.Createdit .Form_createdit form .Skills_Checkbox .Skills:has(input:checked) {
+  background-color: #7C4FFD;
+  color: white;
+}
+.Createdit .Form_createdit form select {
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #A185F2;
+}
+.Createdit .Form_createdit form select:focus {
+  outline: 2px solid #7C4FFD;
+}
+.Createdit .Form_createdit form input, .Createdit .Form_createdit form textarea {
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #A185F2;
+}
+.Createdit .Form_createdit form input:focus, .Createdit .Form_createdit form textarea:focus {
+  outline: 2px solid #7C4FFD;
+}
+.Createdit .Form_createdit form textarea {
+  resize: none;
+  min-height: 15vh;
+  height: fit-content;
+  max-height: 50vh;
+}
+.Createdit .Form_createdit form .Add_Image {
+  text-decoration: none;
+  text-align: center;
+  color: #7C80FB;
+  font-weight: bold;
+  border: 2px solid #7C80FB;
+  padding: 1em 2em;
+  margin: 0;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.Createdit .Form_createdit form .Add_Image:hover {
+  background-color: #7C80FB;
+  color: white;
+}
+.Createdit .Form_createdit form .Project_Images {
+  display: none;
+}
+.Createdit .Form_createdit form .btn {
+  text-decoration: none;
+  text-align: center;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 3px solid #7C4FFD;
+  padding: 1em 2em;
+  margin: 1em 0 0 0;
+  border-radius: 5px;
+}
+.Createdit .Form_createdit form .btn:hover {
+  background-color: #7C4FFD;
+  color: white;
+}
+.Createdit .Picture {
+  background-color: #EBE2F4;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 1;
+  position: relative;
+  margin: calc(-50vh + 2em) 0 0 0;
+  padding: 50vh 10% 5em 10%;
+  border-radius: 0 0 0 60vw/0 0 0 20vh;
+}
+.Createdit .Picture h2 {
+  color: #7C4FFD;
+  font-size: 2em;
+}
+.Createdit .Picture div {
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.Createdit .Picture div article {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  background-color: #D6CFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  padding: 1em;
+}
+.Createdit .Picture div article img {
+  width: calc(50% - 2em);
+  max-width: 30vw;
+  border-radius: 1em;
+}
+.Createdit .Picture div article .btn {
+  text-decoration: none;
+  text-align: center;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 3px solid #7C4FFD;
+  padding: 1em 2em;
+  margin: 0;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.Createdit .Picture div article .btn:hover {
+  background-color: #7C4FFD;
+  color: white;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .Createdit .Picture {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .Createdit .Picture h2 {
+    width: 100%;
+    text-align: center;
+  }
+  .Createdit .Picture div {
+    gap: 1em;
+  }
+  .Createdit .Picture div article {
+    width: calc(50% - 1em);
+    height: stretch;
+  }
+  .Createdit .Picture div article img {
+    width: 100%;
+    max-width: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .Createdit {
+    flex-direction: row;
+  }
+  .Createdit .Form_createdit {
+    width: 70vw;
+    padding: 2em 1em 5em 5%;
+    margin: 0 0 0 0;
+    border-radius: 0 35vw 0 60vw/0 30vh 0 20vh;
+    z-index: 2;
+    position: relative;
+  }
+  .Createdit .Form_createdit form textarea {
+    height: 30vh;
+  }
+  .Createdit .Form_createdit form .Add_Image {
+    width: fit-content;
+  }
+  .Createdit .Form_createdit form .btn {
+    width: fit-content;
+    padding: 2em;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .Createdit .Form_createdit form .btn:hover {
+    background-color: #7C4FFD;
+    color: white;
+  }
+  .Createdit .Picture {
+    width: 80vw;
+    margin: 0 0 0 -50vw;
+    padding: 2em 5% 0 calc(50vw + 2em);
+    border-radius: 0;
+    z-index: 1;
+    position: relative;
+    border-radius: 0 0 0 50vw/0 0 0 50vh;
+  }
+  .Createdit .Picture div {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .Createdit .Picture div article {
+    width: fit-content;
+  }
+  .Createdit .Picture div article img {
+    width: calc(40vw - 2em);
+    max-width: 10vw;
+    border-radius: 1vw;
   }
 }
 * {
