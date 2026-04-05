@@ -33,20 +33,22 @@ class ListController extends AbstractController {
                 }
 
 
-                
-                if (isset($_GET["delete"])) {
+                if (($_GET["list"]) === "project") {
+                    
+                    
+                    if (isset($_GET["delete"])) {
 
-                    $picturelist = $pictureRepository->getByProject($_GET["delete"]);
-                    foreach ($picturelist as $picture) {
-                        unlink($picture->getLink());
+                        $picturelist = $pictureRepository->getByProject($_GET["delete"]);
+                        foreach ($picturelist as $picture) {
+                            unlink($picture->getLink());
+                        }
+
+                        $projectRepository->delete($_GET["delete"]);
+
+                        header("Location: ?page=list&list=project");
+                        exit();
                     }
-
-                    $projectRepository->delete($_GET["delete"]);
-
-                    header("Location: index.php?page=list");
-                    exit();
                 }
-                
 
 
 

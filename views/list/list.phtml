@@ -4,17 +4,19 @@
         <h1>Liste</h1>
 
 
-        <?php switch ($_GET["list"] ?? "") : case "project": ?>
+        <?php switch ($_GET["list"]) : case "project": ?>
 
         <div class="Title-Container">
             <h2>Projets</h2>
-            <a href="?page=create" class="btn">Créer</a>
+            <a href="?page=create&type=project" class="btn">Créer</a>
         </div>
 
 
         <?php foreach ($projects as $project) : ?>
             <article class="Object">
-                <img src="<?= htmlspecialchars($picture[$project->getId()]->getLink()) ?>" alt="">
+                <?php if (isset($pictures[$project->getId()])): ?>
+                    <img src="<?= htmlspecialchars($pictures[$project->getId()]->getLink()) ?>" alt="">
+                <?php endif; ?>
                 <h3><?= htmlspecialchars($project->getName()) ?></h3>
                 <p>
                     
@@ -24,7 +26,7 @@
                 </p>
                 <div>
                     <a href="?page=project&list=project&id=<?= htmlspecialchars($project->getId()) ?>" class="btn">voir</a>
-                    <a href="?page=edit&list=project&id=<?= htmlspecialchars($project->getId()) ?>" class="Edit">Modifier</a>
+                    <a href="?page=edit&type=project&id=<?= htmlspecialchars($project->getId()) ?>" class="Edit">Modifier</a>
                     <a href="?page=list&list=project&delete=<?= htmlspecialchars($project->getId()) ?>" class="Delete">Supprimer</a>
                 </div>
 
@@ -37,7 +39,7 @@
         <?php case "category": ?>
             <div class="Title-Container">
                 <h2>Catégories</h2>
-                <a href="?page=create" class="btn">Créer</a>
+                <a href="?page=create&type=category" class="btn">Créer</a>
             </div>
 
 
@@ -51,7 +53,7 @@
         <?php case "skill": ?>
             <div class="Title-Container">
                 <h2>Compétences</h2>
-                <a href="?page=create" class="btn">Créer</a>
+                <a href="?page=create&type=skill" class="btn">Créer</a>
             </div>
 
 
