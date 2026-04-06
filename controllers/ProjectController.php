@@ -5,6 +5,7 @@ namespace Controllers;
 
 use Repositories\ProjectRepository;
 use Repositories\PictureRepository;
+use Repositories\SkillRepository;
 
 
 class ProjectController extends AbstractController {
@@ -18,6 +19,12 @@ class ProjectController extends AbstractController {
         $projectRepository = new ProjectRepository();
         $project = $projectRepository->getById($projectID);
         
+
+        $skillRepository = new SkillRepository();
+
+        $projectSkills = [];
+        $projectSkills[$project->getId()] = $skillRepository->getByProject($project->getId());
+
 
 
 

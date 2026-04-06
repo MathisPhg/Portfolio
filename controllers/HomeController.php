@@ -6,6 +6,7 @@ use Repositories\ProfilRepository;
 use Repositories\PictureRepository;
 use Repositories\ProjectRepository;
 use Repositories\CategoryRepository;
+use Repositories\SkillRepository;
 
 class HomeController extends AbstractController
 {
@@ -21,7 +22,7 @@ class HomeController extends AbstractController
         $projectRepository = new ProjectRepository();
         $projects = $projectRepository->getAll();
 
-        
+
         $categoryRepository = new CategoryRepository();
         $projectCategories = [];
         foreach ($projects as $project) {
@@ -29,6 +30,11 @@ class HomeController extends AbstractController
             $projectCategories[$project->getId()] = $category ? [$category] : [];
         }
 
+        $skillRepository = new SkillRepository();
+        $projectSkills = [];
+        foreach ($projects as $project) {
+            $projectSkills[$project->getId()] = $skillRepository->getByProject($project->getId());
+        }
 
         $pictureRepository = new PictureRepository();
         $picture = $pictureRepository->getById($profil->getIdPicture());

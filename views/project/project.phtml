@@ -20,10 +20,18 @@
         <?php if (isset($_SESSION["user"])) : ?>
             <a href="?page=edit&type=project&id=<?= $projectID ?>" class="btn">Edit</a>
         <?php endif; ?>
+
         <h1 class="Title"><?= htmlspecialchars($project->getName()) ?></h1>
-        <p class="Description">
-            <?= $project->getDescription() ?>
+
+        <p class="skill">
+            
+            <?php foreach ($projectSkills[$project->getId()] as $skill) : ?>
+                <span><?= htmlspecialchars($skill->getName()) ?></span>
+            <?php endforeach; ?>
+
         </p>
+
+        <?= str_replace("<script>", "&lt;script&gt;", $project->getDescription()) ?>
     </section>
 
 
