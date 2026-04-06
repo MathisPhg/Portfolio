@@ -2,6 +2,9 @@ const input = document.getElementById('Project_Images');
 const preview = document.getElementById('picture-preview');
 
 if (input && preview) {
+
+
+    
     let dataTransfer = new DataTransfer();
 
     input.addEventListener('change', function () {
@@ -13,12 +16,17 @@ if (input && preview) {
 
             const reader = new FileReader();
 
+
+
             reader.onload = function (e) {
                 const article = document.createElement('article');
                 article.innerHTML = `
                     <img src="${e.target.result}" alt="${file.name}">
                     <button type="button" class="btn">Supprimer</button>
                 `;
+
+
+
 
                 article.querySelector('button').addEventListener('click', function () {
                     const newDT = new DataTransfer();

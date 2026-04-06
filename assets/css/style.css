@@ -490,24 +490,65 @@ footer p {
   padding: 0 10% 5em 10%;
   background-color: #F3F3FC;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 1.5em;
   border-radius: 0 0 60vw 0/0 0 25vh 0;
   z-index: 2;
   position: relative;
 }
-.Dashboard .Profil_info article {
+.Dashboard .Profil_info form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Dashboard .Profil_info form article {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
 }
-.Dashboard .Profil_info article img {
+.Dashboard .Profil_info form article textarea {
+  height: 20vh;
+}
+.Dashboard .Profil_info form article input, .Dashboard .Profil_info form article textarea {
+  margin: 0.7em 0;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #A185F2;
+}
+.Dashboard .Profil_info form article input:focus, .Dashboard .Profil_info form article textarea:focus {
+  outline: 2px solid #7C4FFD;
+}
+.Dashboard .Profil_info form article .File_input {
+  display: none;
+}
+.Dashboard .Profil_info form article label img {
   object-fit: cover;
-  max-height: 60vh;
+  width: 100%;
+  max-height: 70vh;
   max-width: 60vw;
   border-radius: 25%;
+  cursor: pointer;
+}
+.Dashboard .Profil_info form article label img:hover {
+  filter: brightness(0.75);
+}
+.Dashboard .Profil_info form article .btn {
+  text-decoration: none;
+  text-align: center;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 2px solid #7C4FFD;
+  padding: 1em 2em;
+  margin: 1em 0 0 0;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+.Dashboard .Profil_info form article .btn:hover {
+  background-color: #7C4FFD;
+  color: white;
 }
 .Dashboard .Crud {
   width: 100%;
@@ -563,13 +604,25 @@ footer p {
   }
 }
 @media screen and (min-width: 1024px) {
-  .Dashboard .Profil_info {
+  .Dashboard .Profil_info form {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1em;
   }
-  .Dashboard .Profil_info article {
+  .Dashboard .Profil_info form article {
     width: calc(40% - 2em);
+    display: flex;
+    flex-direction: column;
+  }
+  .Dashboard .Profil_info form article input, .Dashboard .Profil_info form article textarea {
+    margin: 0.7em 0;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #A185F2;
+  }
+  .Dashboard .Profil_info form article input:focus, .Dashboard .Profil_info form article textarea:focus {
+    outline: 2px solid #7C4FFD;
   }
   .Dashboard .Profil_info h1 {
     width: 100%;

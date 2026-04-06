@@ -86,6 +86,11 @@ class PictureRepository
 
     }
 
+    public function getLastInsertId(): int
+    {
+        return (int)$this->pdo->lastInsertId();
+    }
+
     public function delete(int $id): bool
     {
         $stmt = $this->pdo->prepare(

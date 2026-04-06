@@ -10,41 +10,41 @@
 
         <form action="?page=<?= ($_GET["page"]==="create") ? "create&type=" . htmlspecialchars($_GET["type"]) : "edit&type=" . htmlspecialchars($_GET["type"]) . "&id=" . htmlspecialchars($_GET["id"] ?? "") ?>" method="POST" enctype="multipart/form-data">
 
-        <label for="title">Titre</label>
-        <input type="text" id="title" name="title" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($project->getName()) : "" ?>">
+            <label for="title">Titre</label>
+            <input type="text" id="title" name="title" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($project->getName()) : "" ?>">
 
-        <label for="content">Contenue</label>
-        <textarea id="content" name="content"><?php if ($_GET["page"] === "edit") { echo htmlspecialchars($project->getDescription()); } ?></textarea>
+            <label for="content">Contenue</label>
+            <textarea id="content" name="content"><?php if ($_GET["page"] === "edit") { echo htmlspecialchars($project->getDescription()); } ?></textarea>
 
-        <label for="category">Categories</label>
-        <select name="category" id="category" required>
+            <label for="category">Categories</label>
+            <select name="category" id="category" required>
 
-            <option value="" selected>--Selectioner--</option>
+                <option value="" selected>--Selectioner--</option>
 
+                
+                <?php foreach ($categories as $category) : ?>
+                    <option value="<?= htmlspecialchars($category->getId()) ?>" <?= ($_GET["page"] === "edit" && $project->getIdCategory() === $category->getId()) ? "selected" : "" ?>><?= htmlspecialchars($category->getName()) ?></option>
+                <?php endforeach; ?>
+
+
+            </select>
             
-            <?php foreach ($categories as $category) : ?>
-                <option value="<?= htmlspecialchars($category->getId()) ?>" <?= ($_GET["page"] === "edit" && $project->getIdCategory() === $category->getId()) ? "selected" : "" ?>><?= htmlspecialchars($category->getName()) ?></option>
-            <?php endforeach; ?>
+            <label for="skills">Compétences </label>
+            <article class="Skills_Checkbox">
+
+                <?php foreach ($skills as $skill) : ?>
+                    <label class="Skills">
+                        <input type="checkbox" name="skills[]" value="<?= htmlspecialchars($skill->getId()) ?>" <?= ($_GET["page"] === "edit" && in_array($skill->getId(), $selectedSkillIds)) ? 'checked' : '' ?>><?= htmlspecialchars($skill->getName()) ?>
+                    </label>
+                <?php endforeach; ?>
+
+            </article>
 
 
-        </select>
-        
-        <label for="skills">Compétences </label>
-        <article class="Skills_Checkbox">
+            <label for="Project_Images" class="Add_Image">Ajouter des images</label>
+            <input type="file" class="Project_Images" id="Project_Images" name="Project_Images[]" accept="image/*" multiple >
 
-            <?php foreach ($skills as $skill) : ?>
-                <label class="Skills">
-                    <input type="checkbox" name="skills[]" value="<?= htmlspecialchars($skill->getId()) ?>" <?= ($_GET["page"] === "edit" && in_array($skill->getId(), $selectedSkillIds)) ? 'checked' : '' ?>><?= htmlspecialchars($skill->getName()) ?>
-                </label>
-            <?php endforeach; ?>
-
-        </article>
-
-
-        <label for="Project_Images" class="Add_Image">Ajouter des images</label>
-        <input type="file" class="Project_Images" id="Project_Images" name="Project_Images[]" accept="image/*" multiple >
-
-        <button type="submit" name="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
+            <button type="submit" name="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
 
 
 

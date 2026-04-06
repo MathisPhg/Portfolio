@@ -4,27 +4,45 @@
 
     <section class="Profil_info">
         <h1>Dashboard</h1>
+        <form action="?page=dashboard" method="POST" enctype="multipart/form-data">
+            <article>
 
-        <article>
+                <h2>Mon Profil</h2>
 
-            <h2>Mon Profil</h2>
+                <label for="profil_image_input"><img src="<?= $picture->getLink() ?>" alt="Profil" id="profil_image" class="profil"></label>
+                <input type="file" id="profil_image_input" name="profil_image_input" class="File_input">
 
-            <img src="<?= $picture->getLink() ?>" alt="Profil" class="profil">
 
-        </article>
+            </article>
 
-        <article>
+            <article>
 
-            <h3><?= $profil->getName() ?></h3>
+            
+                
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" value="<?= $profil->getName() ?>">
 
-            <p><?= $profil->getDescription() ?></p>
+                <label for="description">Description</label>
+                <textarea id="description" name="description"><?= $profil->getDescription() ?></textarea>
 
-            <p>email :<?= $profil->getEmail() ?></p>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<?= $profil->getEmail() ?>">
 
-            <p>Telephone : <?= $profil->getPhone() ?></p>
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" value="<?= $profil->getPhone() ?>">
 
-        </article>
+                <label for="cv" class="btn">changer de CV</label>
+                <p>CV actuel : <?= htmlspecialchars(explode("_", str_replace("assets/images/", "", $profil->getCv()))[1]) ?></p>
+                <a href="<?= htmlspecialchars($profil->getCv()) ?>" download="<?= htmlspecialchars($profil->getName()) ?>_CV" class="btn">Voir CV</a>
 
+                <input type="file" id="cv" name="cv" class="File_input" >
+
+                <button type="submit" name="submit" class="btn">Modifier</button>
+
+            
+
+            </article>
+        </form>
     </section>
 
 

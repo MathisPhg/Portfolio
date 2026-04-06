@@ -57,9 +57,11 @@ class EditController extends AbstractController
                             }
 
                             foreach ($images["tmp_name"] as $index => $tmpName) {
+
                                 if ($images["error"][$index] === 0) {
                                     $imageName = uniqid() . "_" . basename($images["name"][$index]);
                                     move_uploaded_file($tmpName, "assets/images/" . $imageName);
+                                    
                                     $picture = new Picture(null, "assets/images/" . $imageName, $newProject->getId());
                                     $pictureRepository->create($picture);
                                 }

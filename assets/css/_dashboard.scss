@@ -15,27 +15,93 @@
         padding: 0 10% 5em 10%;
         background-color: c.$color7;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         gap: 1.5em;
 
         border-radius: 0 0 60vw 0 / 0 0 25vh 0;
         z-index: 2;
         position: relative;
-
-        article {
+        form {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            img {
+            align-items: center;
 
-                object-fit: cover;
-                max-height: 60vh;
-                max-width: 60vw;
-                border-radius: 25%;
+            article {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 80%;
+
+                
+                display: flex;
+                flex-direction: column;
+
+                textarea {
+                    height: 20vh;
+                }
+
+                input, textarea {
+                    margin: 0.7em 0;
+                    padding: 0.5em;
+                    border-radius: 5px;
+                    border: 1px solid c.$color3;
+
+                    &:focus {
+                        outline: 2px solid c.$color1;
+                        
+                    }
+
+                }
+
+
+                .File_input {
+                    display: none;
+                }
+                label {
+                    
+                    img {
+
+                        object-fit: cover;
+                        width: 100%;
+                        max-height: 70vh;
+                        max-width: 60vw;
+                        border-radius: 25%;
+                        cursor: pointer;
+
+                        &:hover {
+
+                            filter: brightness(0.75);
+                            
+                        }
+
+                    }
+                }
+
+                .btn {
+                    text-decoration: none;
+                    text-align: center;
+                    color: c.$color1;
+                    font-weight: bold;
+                    border: 2px solid c.$color1;
+                    padding: 1em 2em;
+                    margin: 1em 0 0 0;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, color 0.3s;
+                    width: fit-content;
+
+                    &:hover {
+                        background-color: c.$color1;
+                        color: white;
+                    }
+                }
+
 
             }
+
+
+
+
+
+
         }
 
 
@@ -144,12 +210,34 @@
 
         .Profil_info {
 
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
 
-            article {
-                width: calc(80% / 2 - 2em);
+            form {
+
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1em;
+
+
+                article {
+
+                    width: calc(80% / 2 - 2em);
+                    display: flex;
+                    flex-direction: column;
+
+                    input, textarea {
+                        margin: 0.7em 0;
+                        padding: 0.5em;
+                        border-radius: 5px;
+                        border: 1px solid c.$color3;
+
+                        &:focus {
+                            outline: 2px solid c.$color1;
+                            
+                        }
+
+                    }
+                }
             }
 
             h1 {

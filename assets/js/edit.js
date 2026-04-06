@@ -11,7 +11,11 @@ if (input && preview) {
 
             dataTransfer.items.add(file);
 
+
+
+
             const reader = new FileReader();
+
 
             reader.onload = function (e) {
                 const article = document.createElement('article');
@@ -20,12 +24,15 @@ if (input && preview) {
                     <button type="button" class="btn">Supprimer</button>
                 `;
 
+
+
+
                 article.querySelector('button').addEventListener('click', function () {
-                    const newDT = new DataTransfer();
+                    const DataTransfert2 = new DataTransfer();
                     Array.from(dataTransfer.files).forEach(f => {
-                        if (f !== file) newDT.items.add(f);
+                        if (f !== file) DataTransfert2.items.add(f);
                     });
-                    dataTransfer = newDT;
+                    dataTransfer = DataTransfert2;
                     input.files = dataTransfer.files;
                     article.remove();
                 });
