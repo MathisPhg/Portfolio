@@ -1045,4 +1045,13 @@ main {
   flex: 1;
 }
 
+p,
+h1,
+h2,
+h3,
+h4 {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
 /*# sourceMappingURL=style.css.map */
