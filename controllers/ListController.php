@@ -24,7 +24,7 @@ class ListController extends AbstractController {
 
                 foreach ($projects as $project) {
                     
-                $picture[$project->getId()] = $pictureRepository->getFirst($project->getId());
+                $pictures[$project->getId()] = $pictureRepository->getFirst($project->getId());
                 }
 
                 $categories = [];
@@ -37,16 +37,17 @@ class ListController extends AbstractController {
                     
                     
                     if (isset($_GET["delete"])) {
-
-                        $picturelist = $pictureRepository->getByProject($_GET["delete"]);
-                        foreach ($picturelist as $picture) {
-                            unlink($picture->getLink());
+                        try {
+                            $picturelist = $pictureRepository->getByProject($_GET["delete"]);
+                            foreach ($picturelist as $picture) {
+                                unlink($picture->getLink());
+                            }
+                            $projectRepository->delete($_GET["delete"]);
+                            header("Location: ?page=list&list=project");
+                            exit();
+                        } catch (\Exception $e) {
+                            $error = "Une erreur est survenue lors de la suppression.";
                         }
-
-                        $projectRepository->delete($_GET["delete"]);
-
-                        header("Location: ?page=list&list=project");
-                        exit();
                     }
                 }
 

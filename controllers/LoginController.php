@@ -19,16 +19,19 @@ class LoginController extends AbstractController {
                 $name = $_POST["name"];
                 $password = $_POST["password"];
 
-                $userRepository = new UserRepository();
-                $user = $userRepository->getByName($name);
+                try {
+                    $userRepository = new UserRepository();
+                    $user = $userRepository->getByName($name);
 
-                if (isset($user) && password_verify($password, $user->getPassword())) {
-                    
-                    $_SESSION["user"] = $user->getId();
-                    header("Location: /?page=dashboard");
-                    exit();
-                } else {
-                    $error = "Nom d'utilisateur ou mot de passe incorrect";
+                    if (isset($user) && password_verify($password, $user->getPassword())) {
+                        $_SESSION["user"] = $user->getId();
+                        header("Location: /?page=dashboard");
+                        exit();
+                    } else {
+                        $error = "Nom d'utilisateur ou mot de passe incorrect";
+                    }
+                } catch (\Exception $e) {
+                    $error = "Une erreur est survenue lors de la connexion.";
                 }
 
             } else {

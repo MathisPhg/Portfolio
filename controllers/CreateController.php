@@ -36,38 +36,39 @@ class CreateController extends AbstractController
                         }
 
                     
-
                         $title = $_POST["title"];
                         $content = $_POST["content"];
                         $category = $_POST["category"];
                         $skillsId = $_POST["skills"];
                         $images = $_FILES["Project_Images"];
 
-                        $project = new Project(null, $title, $content, $category);
-                        $projectRepository = new ProjectRepository();
-                        $projectRepository->create($project);
+                        try {
+                            $project = new Project(null, $title, $content, $category);
+                            $projectRepository = new ProjectRepository();
+                            $projectRepository->create($project);
 
-                        $newProject = $projectRepository->getByName($title);
+                            $newProject = $projectRepository->getByName($title);
 
 
-                        foreach ($skillsId as $skillId) {
-                            $projectRepository->addSkill($newProject->getId(), $skillId);
-                        }
-
-                        $pictureRepository = new PictureRepository();
-                        foreach ($images["tmp_name"] as $index => $tmpName) {
-                            if ($images["error"] === 0) {
-                                $imageName = uniqid() . "_" . basename($images["name"][$index]);
-                                move_uploaded_file($tmpName, "assets/images/" . $imageName);
-                                $picture = new Picture(null, "assets/images/" . $imageName, $newProject->getId());
-                                $pictureRepository->create($picture);
+                            foreach ($skillsId as $skillId) {
+                                $projectRepository->addSkill($newProject->getId(), $skillId);
                             }
-                        }
-                        
-                        header("Location: index.php?page=list&list=project");
-                        exit();
 
-                    
+                            $pictureRepository = new PictureRepository();
+                            foreach ($images["tmp_name"] as $index => $tmpName) {
+                                if ($images["error"][$index] === 0) {
+                                    $imageName = uniqid() . "_" . basename($images["name"][$index]);
+                                    move_uploaded_file($tmpName, "assets/images/" . $imageName);
+                                    $picture = new Picture(null, "assets/images/" . $imageName, $newProject->getId());
+                                    $pictureRepository->create($picture);
+                                }
+                            }
+
+                            header("Location: index.php?page=list&list=project");
+                            exit();
+                        } catch (\Exception $e) {
+                            $error = "Une erreur est survenue lors de la création du projet.";
+                        }
 
                     } else {
                         $error = "Veuillez remplir tous les champs";

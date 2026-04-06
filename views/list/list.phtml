@@ -14,7 +14,7 @@
 
         <?php foreach ($projects as $project) : ?>
             <article class="Object">
-                <?php if (isset($pictures[$project->getId()])): ?>
+                <?php if (!empty($pictures[$project->getId()])): ?>
                     <img src="<?= htmlspecialchars($pictures[$project->getId()]->getLink()) ?>" alt="">
                 <?php endif; ?>
                 <h3><?= htmlspecialchars($project->getName()) ?></h3>

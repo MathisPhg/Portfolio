@@ -42,24 +42,22 @@ class EditController extends AbstractController
                         $skillsId = $_POST["skills"];
                         $images = $_FILES["Project_Images"];
 
-                        $newProject = new Project($_GET["id"], $title, $content, $category);
-                        $projectRepository->update($newProject);
+                        try {
+                            $newProject = new Project($_GET["id"], $title, $content, $category);
+                            $projectRepository->update($newProject);
 
-                        $newProject = $projectRepository->getById($_GET["id"]);
-                        
-                        
-                        
-                        $allSkills = $skillRepository->getByProject($_GET["id"]);
-                        foreach ($allSkills as $skill) {
-                            $projectRepository->removeSkill($_GET["id"], $skill->getId());
-                        }
-                        foreach ($skillsId as $skillId) {
-                            $projectRepository->addSkill($newProject->getId(), $skillId);
-                        }
+                            $newProject = $projectRepository->getById($_GET["id"]);
 
+                            $allSkills = $skillRepository->getByProject($_GET["id"]);
+                            foreach ($allSkills as $skill) {
+                                $projectRepository->removeSkill($_GET["id"], $skill->getId());
+                            }
+                            foreach ($skillsId as $skillId) {
+                                $projectRepository->addSkill($newProject->getId(), $skillId);
+                            }
 
-                        foreach ($images["tmp_name"] as $index => $tmpName) {
-                                if ($images["error"] === 0) {
+                            foreach ($images["tmp_name"] as $index => $tmpName) {
+                                if ($images["error"][$index] === 0) {
                                     $imageName = uniqid() . "_" . basename($images["name"][$index]);
                                     move_uploaded_file($tmpName, "assets/images/" . $imageName);
                                     $picture = new Picture(null, "assets/images/" . $imageName, $newProject->getId());
@@ -67,11 +65,11 @@ class EditController extends AbstractController
                                 }
                             }
 
-                        
-                        header("Location: index.php?page=list&list=project");
-                        exit();
-
-                    
+                            header("Location: index.php?page=list&list=project");
+                            exit();
+                        } catch (\Exception $e) {
+                            $error = "Une erreur est survenue lors de la mise à jour du projet.";
+                        }
 
                     } else {
                         $error = "Veuillez remplir tous les champs et ajouter au moins une image.";
@@ -80,10 +78,14 @@ class EditController extends AbstractController
 
                 $pictureRepository = new PictureRepository();
                 if (isset($_GET["delete"])) {
-                    $pictureToDelete = $pictureRepository->getById((int)$_GET["delete"]);
-                    if ($pictureToDelete !== null) {
-                        unlink($pictureToDelete->getLink());
-                        $pictureRepository->delete((int)$_GET["delete"]);
+                    try {
+                        $pictureToDelete = $pictureRepository->getById((int)$_GET["delete"]);
+                        if ($pictureToDelete !== null) {
+                            unlink($pictureToDelete->getLink());
+                            $pictureRepository->delete((int)$_GET["delete"]);
+                        }
+                    } catch (\Exception $e) {
+                        $error = "Une erreur est survenue lors de la suppression de l'image.";
                     }
                 }
 
