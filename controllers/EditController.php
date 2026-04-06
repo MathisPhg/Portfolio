@@ -76,7 +76,6 @@ class EditController extends AbstractController
                     }
                 }
 
-                $pictureRepository = new PictureRepository();
                 if (isset($_GET["delete"])) {
                     try {
                         $pictureToDelete = $pictureRepository->getById((int)$_GET["delete"]);

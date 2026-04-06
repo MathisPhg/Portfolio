@@ -289,7 +289,7 @@ footer p {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
+  margin: 2em 0 1em 0;
 }
 .Project .Image .Selected_image img {
   width: 80%;
@@ -308,7 +308,7 @@ footer p {
 }
 .Project .Image .Image_list img {
   width: 40%;
-  object-fit: fill;
+  object-fit: contain;
   border-radius: 10px;
   transition: transform 0.3s;
 }
@@ -325,6 +325,20 @@ footer p {
   padding: 5em 10% 7em 10%;
   border-radius: 0 15em 0 15em/0 12em 0 12em;
   background-color: #EBE2F4;
+}
+.Project .Info .btn {
+  text-decoration: none;
+  color: #7C4FFD;
+  font-weight: bold;
+  border: 2px solid #7C4FFD;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+.Project .Info .btn:hover {
+  background-color: #7C4FFD;
+  color: white;
 }
 .Project .Info .Title {
   font-size: 2em;
