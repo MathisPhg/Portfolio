@@ -5,6 +5,7 @@ namespace Controllers;
 use Repositories\ProfilRepository;
 use Repositories\PictureRepository;
 use Repositories\ProjectRepository;
+use Repositories\CategoryRepository;
 
 class HomeController extends AbstractController
 {
@@ -19,6 +20,15 @@ class HomeController extends AbstractController
 
         $projectRepository = new ProjectRepository();
         $projects = $projectRepository->getAll();
+
+        
+        $categoryRepository = new CategoryRepository();
+        $projectCategories = [];
+        foreach ($projects as $project) {
+            $category = $categoryRepository->getById($project->getIdCategory());
+            $projectCategories[$project->getId()] = $category ? [$category] : [];
+        }
+
 
         $pictureRepository = new PictureRepository();
         $picture = $pictureRepository->getById($profil->getIdPicture());

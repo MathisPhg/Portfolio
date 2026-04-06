@@ -49,7 +49,7 @@
 
             p {
                 font-size: 1.2em;
-                margin: 1em 0 0 0;
+                margin: 0;
                 text-align: left;
                 
             }
@@ -68,6 +68,7 @@
                 font-size: 1.5em;
                 margin-bottom: 1.5em;
                 color: c.$color3;
+                scroll-margin-top: 7em;
             }
 
             .btn {
@@ -134,16 +135,28 @@
                 border-radius: 1em;
                 
                 padding: 3em;
+                
 
                 
 
 
                 h3{
-                    margin: 0.35em 0 0.25em 0;
+                    margin: 0.5em 0 0.5em 0;
+                    color: c.$color2;
                 }
 
                 p {
-                    margin: 0.1em;
+                    margin: 0.1em 0 0.5em 0;
+                    gap: 0.5em;
+                }
+
+                span {
+
+                    background-color: c.$color4;
+                    padding: 0.5em;
+                    margin: 0.5em 0 0 0;
+                    border-radius: 25% / 50%;
+
                 }
                 
 

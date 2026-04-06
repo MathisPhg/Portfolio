@@ -5,19 +5,21 @@
         
             <article class="Title">
                 <h1>Mon Portfolio</h1>
-                <h2><?= $profil->getName() ?> Developer web</h2>
+                <h2><?= htmlspecialchars($profil->getName()) ?> Developer web</h2>
             </article>
 
             <article class="Presentation">
-                <img src="<?= $picture->getLink() ?>" alt="Photo de <?= $profil->getName() ?>" class="Home__photo">
-                <p>
-                    <?= $profil->getDescription() ?>
-                </p>
+                <img src="<?= htmlspecialchars($picture->getLink()) ?>" alt="Photo de <?= htmlspecialchars($profil->getName()) ?>" class="Home__photo">
+                <div>
+                    <p>
+                        <?= $profil->getDescription() ?>
+                    </p>
+                </div>
             </article>
 
             <article class="CV">
 
-            <h2>Consulter mon Curriculum Vitae</h2>
+            <h2 id="TitreCV">Consulter mon Curriculum Vitae</h2>
             <a href="<?= $profil->getCv() ?>" download="<?= $profil->getName() ?>_CV" class="btn">Télécharger</a>
 
             </article>
@@ -37,8 +39,14 @@
 
                     <img src="<?= !empty($projectPictures[$project->getId()]) ? htmlspecialchars($projectPictures[$project->getId()]->getLink()) : '' ?>" alt="" class="Project_image">
                     <h3><?= htmlspecialchars($project->getName()) ?></h3>
-                    <p>Categorie : Portfolio</p>
-                    <h3>Compétences :</h3>
+                    <h3>Categorie</h3>
+                    <p>
+                        <?php foreach ($projectCategories[$project->getId()] as $category) : ?>
+                            <span><?= htmlspecialchars($category->getName()) ?></span>
+                            <span><?= htmlspecialchars($category->getName()) ?></span>
+                        <?php endforeach; ?>
+                    </p>
+                    <h3>Compétences</h3>
                     <p></p>
                     <a href="?page=project&id=<?= $project->getId() ?>" class="btn">Découvrir</a>
 

@@ -22,3 +22,12 @@ input.addEventListener('change', e => {
     };
     reader.readAsDataURL(file);
 });
+
+if (document.getElementById('quill-editor')) {
+    const descriptionTextarea = document.getElementById('description');
+    const quill = new Quill('#quill-editor', { theme: 'snow' });
+    quill.root.innerHTML = descriptionTextarea.value;
+    descriptionTextarea.closest('form').addEventListener('submit', () => {
+        descriptionTextarea.value = quill.root.innerHTML;
+    });
+}

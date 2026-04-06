@@ -38,17 +38,22 @@
                 textarea {
                     height: 20vh;
                 }
-
-                input, textarea {
-                    margin: 0.7em 0;
-                    padding: 0.5em;
-                    border-radius: 5px;
+                .ql-container.ql-snow {
                     border: 1px solid c.$color3;
+                    background-color: white;
+                    max-height: 20vh;
+                    overflow-y: auto;
 
-                    &:focus {
+                    &:focus-within {
                         outline: 2px solid c.$color1;
-                        
                     }
+                }
+
+                .ql-toolbar.ql-snow {
+
+                    border: 1px solid c.$color3;
+                    background-color: c.$color5;
+                    color: white;
 
                 }
 

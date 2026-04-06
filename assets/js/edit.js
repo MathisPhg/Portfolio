@@ -46,3 +46,12 @@ if (input && preview) {
         input.files = dataTransfer.files;
     });
 }
+
+if (document.getElementById('quill-editor')) {
+    const contentTextarea = document.getElementById('content');
+    const quill = new Quill('#quill-editor', { theme: 'snow' });
+    quill.root.innerHTML = contentTextarea.value;
+    contentTextarea.closest('form').addEventListener('submit', () => {
+        contentTextarea.value = quill.root.innerHTML;
+    });
+}

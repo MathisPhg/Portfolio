@@ -47,3 +47,10 @@ if (input && preview) {
         input.files = dataTransfer.files;
     });
 }
+
+if (document.getElementById('quill-editor')) {
+    const quill = new Quill('#quill-editor', { theme: 'snow' });
+    document.querySelector('form').addEventListener('submit', () => {
+        document.getElementById('content').value = quill.root.innerHTML;
+    });
+}

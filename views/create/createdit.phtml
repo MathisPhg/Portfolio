@@ -14,7 +14,8 @@
             <input type="text" id="title" name="title" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($project->getName()) : "" ?>">
 
             <label for="content">Contenue</label>
-            <textarea id="content" name="content"><?php if ($_GET["page"] === "edit") { echo htmlspecialchars($project->getDescription()); } ?></textarea>
+            <textarea id="content" name="content" ><?php if ($_GET["page"] === "edit") { echo $project->getDescription(); } ?></textarea>
+            <div id="quill-editor"></div>
 
             <label for="category">Categories</label>
             <select name="category" id="category" required>

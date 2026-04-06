@@ -23,7 +23,8 @@
                 <input type="text" id="name" name="name" value="<?= $profil->getName() ?>">
 
                 <label for="description">Description</label>
-                <textarea id="description" name="description"><?= $profil->getDescription() ?></textarea>
+                <textarea id="description" name="description" style="display:none"><?= $profil->getDescription() ?></textarea>
+                <div id="quill-editor"></div>
 
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" value="<?= $profil->getEmail() ?>">

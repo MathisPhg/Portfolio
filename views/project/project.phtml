@@ -22,7 +22,7 @@
         <?php endif; ?>
         <h1 class="Title"><?= htmlspecialchars($project->getName()) ?></h1>
         <p class="Description">
-            <?= htmlspecialchars($project->getDescription()) ?>
+            <?= $project->getDescription() ?>
         </p>
     </section>
 
