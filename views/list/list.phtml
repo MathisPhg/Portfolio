@@ -43,12 +43,20 @@
             </div>
 
 
+        <?php foreach ($categories as $category) : ?>
+            <article class="Object">
+                <h1><?= htmlspecialchars($category->getName()) ?></h1>
+                <div>
+                    <a href="?page=edit&type=category&id=<?= htmlspecialchars($category->getId()) ?>" class="Edit">Modifier</a>
+                    <a href="?page=list&list=category&delete=<?= htmlspecialchars($category->getId()) ?>" class="Delete">Supprimer</a>
+                </div>
+
+            </article>
+        <?php endforeach; ?>
+
 
 
             <?php break; ?>
-
-
-
 
         <?php case "skill": ?>
             <div class="Title-Container">
@@ -58,12 +66,22 @@
 
 
 
+
+        <?php foreach ($skills as $skill) : ?>
+            <article class="Object">
+                <h1><?= htmlspecialchars($skill->getName()) ?></h1>
+                <div>
+                    <a href="?page=edit&type=skill&id=<?= htmlspecialchars($skill->getId()) ?>" class="Edit">Modifier</a>
+                    <a href="?page=list&list=skill&delete=<?= htmlspecialchars($skill->getId()) ?>" class="Delete">Supprimer</a>
+                </div>
+
+            </article>
+        <?php endforeach; ?>
+
+
+
+
             <?php break; ?>
-
-
-
-
-
 
         <?php default: ?>
             <?php header("Location: /?page=dashboard"); ?>
@@ -73,5 +91,7 @@
 
 
     </section>
+
+    <p class="error"><?= isset($error) ? htmlspecialchars($error) : "" ?></p>
     
 </main>
