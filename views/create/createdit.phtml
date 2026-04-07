@@ -116,7 +116,7 @@
                 <input type="text" id="name" name="name" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($skill->getName()) : "" ?>">
 
                 <label for="level" id="levelLabel">Niveau</label>
-                <input type="range" id="level" name="level" min="0" max="10" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($skill->getLevel()) : "0" ?>">
+                <input type="range" id="level" name="level" min="0" max="10" value="<?= ($_GET["page"] === "edit") ? $skill->getLevel() : "0" ?>">
 
                 <button type="submit" name="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
             </form>
