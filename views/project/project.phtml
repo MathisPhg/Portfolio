@@ -30,8 +30,9 @@
             <?php endforeach; ?>
 
         </p>
-
-        <?= str_replace("<script>", "&lt;script&gt;", $project->getDescription()) ?>
+        <div>
+            <?= str_replace("<script>", "&lt;script&gt;", $project->getDescription()) ?>
+        </div>
     </section>
 
 

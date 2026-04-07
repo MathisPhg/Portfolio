@@ -1,10 +1,10 @@
-const input = document.getElementById('Project_Images');
-const preview = document.getElementById('picture-preview');
+const input = document.getElementById("Project_Images");
+const preview = document.getElementById("picture-preview");
 
 if (input && preview) {
     let dataTransfer = new DataTransfer();
 
-    input.addEventListener('change', function () {
+    input.addEventListener("change", function () {
 
         Array.from(this.files).forEach(file => {
 
@@ -18,16 +18,17 @@ if (input && preview) {
 
 
             reader.onload = function (e) {
-                const article = document.createElement('article');
+                const article = document.createElement("article");
                 article.innerHTML = `
                     <img src="${e.target.result}" alt="${file.name}">
-                    <button type="button" class="btn">Supprimer</button>
+                    <a href="#" class="btn">Supprimer</a>
                 `;
 
 
 
 
-                article.querySelector('button').addEventListener('click', function () {
+                article.querySelector("a").addEventListener("click", function (e) {
+                    e.preventDefault();
                     const DataTransfert2 = new DataTransfer();
                     Array.from(dataTransfer.files).forEach(f => {
                         if (f !== file) DataTransfert2.items.add(f);
@@ -47,11 +48,11 @@ if (input && preview) {
     });
 }
 
-if (document.getElementById('quill-editor')) {
-    const contentTextarea = document.getElementById('content');
-    const quill = new Quill('#quill-editor', { theme: 'snow' });
+if (document.getElementById("quill-editor")) {
+    const contentTextarea = document.getElementById("content");
+    const quill = new Quill("#quill-editor", { theme: "snow" });
     quill.root.innerHTML = contentTextarea.value;
-    contentTextarea.closest('form').addEventListener('submit', () => {
+    contentTextarea.closest("form").addEventListener("submit", () => {
         contentTextarea.value = quill.root.innerHTML;
     });
 }

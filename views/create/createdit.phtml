@@ -14,9 +14,10 @@
             <input type="text" id="title" name="title" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($project->getName()) : "" ?>">
 
             <label for="content">Contenue</label>
-            <textarea id="content" name="content" ><?php if ($_GET["page"] === "edit") { echo $project->getDescription(); } ?></textarea>
-            <div id="quill-editor"></div>
-
+            <div>
+                <textarea id="content" name="content" ><?php if ($_GET["page"] === "edit") { echo $project->getDescription(); } ?></textarea>
+                <div id="quill-editor"></div>
+            </div>
             <label for="category">Categories</label>
             <select name="category" id="category" required>
 
@@ -78,14 +79,49 @@
         <?php break; ?>
     <?php case "category": ?>
 
+        <section class="Form_skillCategory">
+
+        <h1> <?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?> une catégorie</h1>
 
 
+
+            <form action="?page=<?= ($_GET["page"]==="create") ? "create&type=" . htmlspecialchars($_GET["type"]) : "edit&type=" . htmlspecialchars($_GET["type"]) . "&id=" . htmlspecialchars($_GET["id"] ?? "") ?>" method="POST" >
+
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($category->getName()) : "" ?>">
+
+                <button type="submit" name="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
+            </form>
+            <p><?= isset($error) ? $error : "" ?></p>
+        </section>
+        
 
 
 
         <?php break; ?>
     <?php case "skill": ?>
 
+        <section class="Form_skillCategory">
+
+        <h1> <?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?> une compétence</h1>
+
+
+
+
+
+            <form action="?page=<?= ($_GET["page"]==="create") ? "create&type=" . htmlspecialchars($_GET["type"]) : "edit&type=" . htmlspecialchars($_GET["type"]) . "&id=" . htmlspecialchars($_GET["id"] ?? "") ?>" method="POST">
+
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($skill->getName()) : "" ?>">
+
+                <label for="level" id="levelLabel">Niveau</label>
+                <input type="range" id="level" name="level" min="0" max="10" value="<?= ($_GET["page"] === "edit") ? htmlspecialchars($skill->getLevel()) : "0" ?>">
+
+                <button type="submit" name="submit" class="btn"><?= ($_GET["page"]==="create") ? "Créer" : "Modifier" ?></button>
+            </form>
+            <p><?= isset($error) ? $error : "" ?></p>
+        </section>
+        
 
 
 

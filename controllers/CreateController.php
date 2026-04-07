@@ -9,6 +9,8 @@ use Repositories\CategoryRepository;
 use Repositories\SkillRepository;
 use Modeles\Project;
 use Modeles\Picture;
+use Modeles\Skill;
+use Modeles\Category;
 
 class CreateController extends AbstractController
 {
@@ -91,7 +93,34 @@ class CreateController extends AbstractController
                 break;
             case "skill":
 
+                try {
 
+                    if (isset($_POST["submit"])) {
+                        if (!empty($_POST["name"])) {
+
+                            $name = $_POST["name"];
+                            $level = $_POST["level"];
+
+                            try {
+                                $skill = new Skill(null, $name, $level);
+                                $skillRepository = new SkillRepository();
+                                $skillRepository->create($skill);
+
+                                header("Location: index.php?page=list&list=skill");
+                                exit();
+                            } catch (\Exception $e) {
+                                $error = "Une erreur est survenue lors de la création de la compétence.";
+                            }
+
+                        } else {
+                            $error = "Veuillez remplir tous les champs";
+                        }
+                    }
+
+
+                } catch (\Exception $e) {
+                    $error = "Une erreur est survenue lors de la récupération de la compétence.";
+                }
 
 
 
@@ -105,7 +134,34 @@ class CreateController extends AbstractController
 
 
 
+                try {
 
+                    if (isset($_POST["submit"])) {
+                        if (!empty($_POST["name"])) {
+
+                            $name = $_POST["name"];
+                            
+
+                            try {
+                                $category = new Category(null, $name);
+                                $categoryRepository = new CategoryRepository();
+                                $categoryRepository->create($category);
+
+                                header("Location: index.php?page=list&list=category");
+                                exit();
+                            } catch (\Exception $e) {
+                                $error = "Une erreur est survenue lors de la création de la catégorie.";
+                            }
+
+                        } else {
+                            $error = "Veuillez remplir tous les champs";
+                        }
+                    }
+
+
+                } catch (\Exception $e) {
+                    $error = "Une erreur est survenue lors de la récupération de la catégorie.";
+                }
 
 
 

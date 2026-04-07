@@ -301,7 +301,7 @@ footer p {
   margin: 2em 0 1em 0;
 }
 .Project .Image .Selected_image img {
-  width: 80%;
+  width: 100%;
   max-width: 50vh;
   border: 2px solid #EBE2F4;
 }
@@ -331,7 +331,7 @@ footer p {
   width: 100%;
   position: relative;
   z-index: 2;
-  padding: 5em 10% 7em 10%;
+  padding: 1em 10% 7em 10%;
   border-radius: 0 15em 0 15em/0 12em 0 12em;
   background-color: #EBE2F4;
 }
@@ -367,6 +367,11 @@ footer p {
   margin: 0.5em 0 0 0;
   border-radius: 25%/50%;
 }
+.Project .Info div {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-bottom: 10vh;
+}
 
 @media screen and (min-width: 1024px) {
   .Project {
@@ -375,7 +380,7 @@ footer p {
     padding: 0 0 0 0;
   }
   .Project .Image {
-    width: 50%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -385,6 +390,14 @@ footer p {
     padding: 0;
     margin: 0 0 0 0;
     border-radius: 0 20vw 0 0/0 25vh 0 0;
+  }
+  .Project .Image .Selected_image {
+    width: 100%;
+  }
+  .Project .Image .Selected_image img {
+    width: 100%;
+    max-width: 50vw;
+    border: 2px solid #EBE2F4;
   }
   .Project .Image .Image_list {
     max-width: 90%;
@@ -399,7 +412,7 @@ footer p {
     border-radius: 0 0 20vw 0/0 0 25vh 0;
     margin: 0 0 0 calc(-50vw + 2em);
     position: static;
-    padding: 5em 3% 0 50vw;
+    padding: 1em 3% 0 50vw;
   }
   .Project .Info p {
     max-height: 55vh;
@@ -826,7 +839,28 @@ footer p {
   justify-content: center;
   flex-direction: column;
 }
-.Createdit .Form_createdit {
+.Createdit .ql-container.ql-snow {
+  border: 1px solid #A185F2;
+  background-color: white;
+  height: 40vh;
+  overflow-y: auto;
+}
+.Createdit .ql-container.ql-snow:focus-within {
+  outline: 2px solid #7C4FFD;
+}
+.Createdit .ql-toolbar.ql-snow {
+  border: 1px solid #A185F2;
+  background-color: #D6CFFF;
+  color: white;
+}
+.Createdit .Form_skillCategory {
+  width: 100%;
+  border-radius: 0 0 50vw 0/0 0 20vh 0;
+}
+.Createdit .Form_skillCategory input[type=range] {
+  width: 100%;
+}
+.Createdit .Form_createdit, .Createdit .Form_skillCategory {
   background-color: #F3F3FC;
   padding: 2em 10% 5em 10%;
   z-index: 2;
@@ -835,31 +869,31 @@ footer p {
   padding: 50vh 10% 5em 10%;
   border-radius: 0 0 50vw 0/0 0 20vh 0;
 }
-.Createdit .Form_createdit h1 {
+.Createdit .Form_createdit h1, .Createdit .Form_skillCategory h1 {
   font-size: 2.5em;
   margin: 0;
   color: #7C4FFD;
 }
-.Createdit .Form_createdit form {
+.Createdit .Form_createdit form, .Createdit .Form_skillCategory form {
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: 2em 10% 5em 10%;
 }
-.Createdit .Form_createdit form label {
+.Createdit .Form_createdit form label, .Createdit .Form_skillCategory form label {
   font-weight: bold;
   color: #7C4FFD;
 }
-.Createdit .Form_createdit form label input {
+.Createdit .Form_createdit form label input, .Createdit .Form_skillCategory form label input {
   display: none;
 }
-.Createdit .Form_createdit form .Skills_Checkbox {
+.Createdit .Form_createdit form .Skills_Checkbox, .Createdit .Form_skillCategory form .Skills_Checkbox {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
   margin: 0 0 2.5em 0;
 }
-.Createdit .Form_createdit form .Skills_Checkbox .Skills {
+.Createdit .Form_createdit form .Skills_Checkbox .Skills, .Createdit .Form_skillCategory form .Skills_Checkbox .Skills {
   text-decoration: none;
   text-align: center;
   color: #7C4FFD;
@@ -871,34 +905,34 @@ footer p {
   transition: background-color 0.3s, color 0.3s;
   width: fit-content;
 }
-.Createdit .Form_createdit form .Skills_Checkbox .Skills:has(input:checked) {
+.Createdit .Form_createdit form .Skills_Checkbox .Skills:has(input:checked), .Createdit .Form_skillCategory form .Skills_Checkbox .Skills:has(input:checked) {
   background-color: #7C4FFD;
   color: white;
 }
-.Createdit .Form_createdit form select {
+.Createdit .Form_createdit form select, .Createdit .Form_skillCategory form select {
   padding: 0.5em;
   border-radius: 5px;
   border: 1px solid #A185F2;
 }
-.Createdit .Form_createdit form select:focus {
+.Createdit .Form_createdit form select:focus, .Createdit .Form_skillCategory form select:focus {
   outline: 2px solid #7C4FFD;
 }
-.Createdit .Form_createdit form input, .Createdit .Form_createdit form textarea {
+.Createdit .Form_createdit form input, .Createdit .Form_createdit form textarea, .Createdit .Form_skillCategory form input, .Createdit .Form_skillCategory form textarea {
   padding: 0.5em;
   border-radius: 5px;
   border: 1px solid #A185F2;
 }
-.Createdit .Form_createdit form input:focus, .Createdit .Form_createdit form textarea:focus {
+.Createdit .Form_createdit form input:focus, .Createdit .Form_createdit form textarea:focus, .Createdit .Form_skillCategory form input:focus, .Createdit .Form_skillCategory form textarea:focus {
   outline: 2px solid #7C4FFD;
 }
-.Createdit .Form_createdit form textarea {
+.Createdit .Form_createdit form textarea, .Createdit .Form_skillCategory form textarea {
   resize: none;
   min-height: 15vh;
   height: fit-content;
   max-height: 50vh;
   display: none;
 }
-.Createdit .Form_createdit form .Add_Image {
+.Createdit .Form_createdit form .Add_Image, .Createdit .Form_skillCategory form .Add_Image {
   text-decoration: none;
   text-align: center;
   color: #7C80FB;
@@ -909,14 +943,14 @@ footer p {
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
-.Createdit .Form_createdit form .Add_Image:hover {
+.Createdit .Form_createdit form .Add_Image:hover, .Createdit .Form_skillCategory form .Add_Image:hover {
   background-color: #7C80FB;
   color: white;
 }
-.Createdit .Form_createdit form .Project_Images {
+.Createdit .Form_createdit form .Project_Images, .Createdit .Form_skillCategory form .Project_Images {
   display: none;
 }
-.Createdit .Form_createdit form .btn {
+.Createdit .Form_createdit form .btn, .Createdit .Form_skillCategory form .btn {
   text-decoration: none;
   text-align: center;
   color: #7C4FFD;
@@ -926,7 +960,7 @@ footer p {
   margin: 1em 0 0 0;
   border-radius: 5px;
 }
-.Createdit .Form_createdit form .btn:hover {
+.Createdit .Form_createdit form .btn:hover, .Createdit .Form_skillCategory form .btn:hover {
   background-color: #7C4FFD;
   color: white;
 }
@@ -962,9 +996,12 @@ footer p {
   padding: 1em;
 }
 .Createdit .Picture div article img {
-  width: calc(50% - 2em);
-  max-width: 30vw;
+  max-height: 25vh;
+  height: fit-content;
+  width: 100%;
+  max-width: 50vw;
   border-radius: 1em;
+  object-fit: cover;
 }
 .Createdit .Picture div article .btn {
   text-decoration: none;
@@ -1007,6 +1044,17 @@ footer p {
 @media screen and (min-width: 1024px) {
   .Createdit {
     flex-direction: row;
+  }
+  .Createdit .Form_skillCategory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Createdit .Form_skillCategory form {
+    width: 50%;
+  }
+  .Createdit .Form_skillCategory .btn {
+    width: fit-content;
   }
   .Createdit .Form_createdit {
     width: 70vw;

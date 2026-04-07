@@ -9,6 +9,8 @@ use Repositories\CategoryRepository;
 use Repositories\SkillRepository;
 use Modeles\Project;
 use Modeles\Picture;
+use Modeles\Skill;
+use Modeles\Category;
 
 
 class EditController extends AbstractController
@@ -61,7 +63,7 @@ class EditController extends AbstractController
                                 if ($images["error"][$index] === 0) {
                                     $imageName = uniqid() . "_" . basename($images["name"][$index]);
                                     move_uploaded_file($tmpName, "assets/images/" . $imageName);
-                                    
+
                                     $picture = new Picture(null, "assets/images/" . $imageName, $newProject->getId());
                                     $pictureRepository->create($picture);
                                 }
@@ -108,13 +110,44 @@ class EditController extends AbstractController
 
                 break;
             case "skill":
+                
+                
+                
+                try {
+                    if (isset($_GET["id"])) {
+                        $skillRepository = new SkillRepository();
+                        $skill  = $skillRepository->getById($_GET["id"]);
+                    }
+
+                    if (isset($_POST["submit"])) {
+
+                        if (!empty($_POST["name"])) {
+
+                            $name = $_POST["name"];
+                            $level = $_POST["level"];
+
+                            try {
+                                $updatedSkill = new Skill($_GET["id"], $name, $level);
+                                $skillRepository->update($updatedSkill);
+
+                                header("Location: index.php?page=list&list=skill");
+                                exit();
+                            } catch (\Exception $e) {
+                                $error = "Une erreur est survenue lors de la mise à jour de la compétence.";
+                            }
+
+                        } else {
+                            $error = "Veuillez remplir tous les champs";
+                        }
 
 
+                    }
 
 
-
-
-
+               
+                } catch (\Exception $e) {
+                    $error = "Une erreur est survenue lors de la récupération de la compétence.";
+                }
 
 
 
@@ -123,9 +156,41 @@ class EditController extends AbstractController
 
 
 
+                try {
+                    if (isset($_GET["id"])) {
+                        $categoryRepository = new CategoryRepository();
+                        $category  = $categoryRepository->getById($_GET["id"]);
+                    }
+
+                    if (isset($_POST["submit"])) {
+
+                        if (!empty($_POST["name"])) {
+
+                            $name = $_POST["name"];
+                            $level = $_POST["level"];
+
+                            try {
+                                $updatedCategory = new Category($_GET["id"], $name);
+                                $categoryRepository->update($updatedCategory);
+
+                                header("Location: index.php?page=list&list=category");
+                                exit();
+                            } catch (\Exception $e) {
+                                $error = "Une erreur est survenue lors de la mise à jour de la catégorie.";
+                            }
+
+                        } else {
+                            $error = "Veuillez remplir tous les champs";
+                        }
 
 
+                    }
 
+
+               
+                } catch (\Exception $e) {
+                    $error = "Une erreur est survenue lors de la récupération de la catégorie.";
+                }
 
 
 

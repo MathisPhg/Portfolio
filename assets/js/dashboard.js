@@ -1,11 +1,11 @@
-const image = document.getElementById('profil_image');
-const input = document.getElementById('profil_image_input');
+const image = document.getElementById("profil_image");
+const input = document.getElementById("profil_image_input");
 
 
 
 let dataTransfer = new DataTransfer();
 
-input.addEventListener('change', e => {
+input.addEventListener("change", e => {
 
     const file = e.target.files[0];
 
@@ -23,11 +23,11 @@ input.addEventListener('change', e => {
     reader.readAsDataURL(file);
 });
 
-if (document.getElementById('quill-editor')) {
-    const descriptionTextarea = document.getElementById('description');
-    const quill = new Quill('#quill-editor', { theme: 'snow' });
+if (document.getElementById("quill-editor")) {
+    const descriptionTextarea = document.getElementById("description");
+    const quill = new Quill("#quill-editor", { theme: "snow" });
     quill.root.innerHTML = descriptionTextarea.value;
-    descriptionTextarea.closest('form').addEventListener('submit', () => {
+    descriptionTextarea.closest("form").addEventListener("submit", () => {
         descriptionTextarea.value = quill.root.innerHTML;
     });
 }
