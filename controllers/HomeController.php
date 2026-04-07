@@ -24,6 +24,7 @@ class HomeController extends AbstractController
 
 
         $categoryRepository = new CategoryRepository();
+        $categories = $categoryRepository->getAll();
         $projectCategories = [];
         foreach ($projects as $project) {
             $category = $categoryRepository->getById($project->getIdCategory());
@@ -31,6 +32,7 @@ class HomeController extends AbstractController
         }
 
         $skillRepository = new SkillRepository();
+        $skills = $skillRepository->getAll();
         $projectSkills = [];
         foreach ($projects as $project) {
             $projectSkills[$project->getId()] = $skillRepository->getByProject($project->getId());

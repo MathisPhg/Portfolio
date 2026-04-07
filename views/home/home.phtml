@@ -31,14 +31,42 @@
 
         <h1>Mes Projets</h1>
 
+        <div class="sort">
+
+            <div class="selectSort">
+                <label for="sortCategory">Trier par Catégorie:</label>
+                <select id="sortCategory" class="btn">
+
+                    <option value="category-all">Tous</option>
+                    <?php foreach ($categories as $category) : ?>
+                        <option value="category-<?= htmlspecialchars($category->getName()) ?>"><?= htmlspecialchars($category->getName()) ?></option>
+                    <?php endforeach; ?>
+
+                </select>
+            </div>
+
+            <div class="selectSort">
+                <label for="sortSkill">Trier par Compétence:</label>
+                <select id="sortSkill" class="btn">
+
+                    <option value="all">Tous</option>
+                    <?php foreach ($skills as $skill) : ?>
+                        <option value="<?= htmlspecialchars($skill->getName()) ?>"><?= htmlspecialchars($skill->getName()) ?></option>
+                    <?php endforeach; ?>
+
+                </select>   
+            </div>
+
+        </div>
+
         <div class="Projects_list">
 
             <?php foreach ($projects as $project) : ?>
 
-                <article class="Project">
+                <article class="Project <?php foreach ($projectCategories[$project->getId()] as $category) { echo "category-" . htmlspecialchars($category->getName()) . " "; } ?> <?php foreach ($projectSkills[$project->getId()] as $skill) { echo htmlspecialchars($skill->getName()) . " "; } ?>">
 
-                    <img src="<?= !empty($projectPictures[$project->getId()]) ? htmlspecialchars($projectPictures[$project->getId()]->getLink()) : '' ?>" alt="" class="Project_image">
-                    <h3><?= htmlspecialchars($project->getName()) ?></h3>
+                    <img src="<?= !empty($projectPictures[$project->getId()]) ? htmlspecialchars($projectPictures[$project->getId()]->getLink()) : "" ?>" alt="" class="Project_image">
+                    <h2><?= htmlspecialchars($project->getName()) ?></h2>
                     <h3>Categorie</h3>
                     <p>
                         <?php foreach ($projectCategories[$project->getId()] as $category) : ?>
@@ -59,6 +87,8 @@
                 </article>
 
             <?php endforeach; ?>
+
+            <h2 class="noResult" id="noResult">Aucun projet trouvé</h2>
 
         </div>
     

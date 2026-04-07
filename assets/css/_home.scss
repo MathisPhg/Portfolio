@@ -51,6 +51,7 @@
                 font-size: 1.2em;
                 margin: 0;
                 text-align: left;
+                max-width: 40vw;
                 
             }
 
@@ -59,6 +60,7 @@
                 max-width: 25em;
                 border-radius: 25%;
                 object-fit: cover;
+                margin: 0 0 1em 0;
             }
 
         }
@@ -110,7 +112,65 @@
         
         
         background-color: c.$color5;
-        
+
+        h1 {
+            color: c.$color1;
+            margin: 0 0 0.5em 0;
+            text-align: center;
+            font-size: 3em;
+        }
+
+
+        .sort {
+            
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            .selectSort {
+
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                
+
+
+                &:focus {
+                    outline: 2px solid c.$color1;
+                    
+                }
+
+                label {
+                    
+                    font-weight: bold;
+                    margin-bottom: 0.5em;
+                }
+
+
+
+
+                .btn {
+                    
+                    text-align: center;
+                    padding: 0.5em;
+                    border-radius: 5px;
+                    border: 1px solid c.$color3;
+
+                    &:focus {
+                        outline: 2px solid c.$color1;
+                        
+                    }
+                }
+    
+
+            }
+
+
+
+
+
+        }
+
 
         .Projects_list {
 
@@ -135,26 +195,34 @@
                 border-radius: 1em;
                 
                 padding: 3em;
-                
+
+
 
                 
+
+                h2{
+                    margin: 0 0 0.5em 0;
+                    color: c.$color1;
+                }                
 
 
                 h3{
-                    margin: 0.5em 0 0.5em 0;
+                    margin: 0.5em 0 0 0;
                     color: c.$color2;
                 }
 
                 p {
-                    margin: 0.1em 0 0.5em 0;
-                    gap: 0.5em;
+                    margin: 0;
+                    gap: 5em;
+                    
                 }
 
                 span {
 
                     background-color: c.$color4;
                     padding: 0.5em;
-                    margin: 0.5em 0 0 0;
+                    margin: 0.3em 0;
+                    display: inline-block;
                     border-radius: 25% / 50%;
 
                 }
@@ -189,6 +257,16 @@
                 }
 
             }
+            
+            
+            .noResult {
+                display: none;
+                color: c.$color1;
+                width: 100%;
+                text-align: center;
+            }
+
+
 
         }
         
@@ -276,6 +354,19 @@
 
         .Projects {
             border-radius: 0 0 0 30em / 0 0 0 12em;
+
+
+
+            .sort {
+                
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 60%;
+
+            }
+
+
             .Projects_list {
                 width: 80%;
                 flex-direction: row;
@@ -314,6 +405,65 @@
 
         .Projects {
             border-radius: 0 0 0 50em / 0 0 0 15em;
+
+
+
+            .sort {
+                
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                
+                gap: 7vw;
+
+                .selectSort {
+
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    width: fit-content;
+                    
+
+
+                    &:focus {
+                        outline: 2px solid c.$color1;
+                        
+                    }
+
+                    label {
+                        
+                        font-weight: bold;
+                        margin-bottom: 0.5em;
+                        width: 100%;
+                    }
+
+
+
+
+                    .btn {
+                        
+                        text-align: center;
+                        padding: 0.5em;
+                        border-radius: 5px;
+                        border: 1px solid c.$color3;
+
+                        &:focus {
+                            outline: 2px solid c.$color1;
+                            
+                        }
+                    }
+        
+
+                }
+
+
+
+
+
+            }
+
+
+
             .Projects_list {
                 width: 90%;
                 flex-direction: row;

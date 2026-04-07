@@ -98,12 +98,14 @@ footer p {
   font-size: 1.2em;
   margin: 0;
   text-align: left;
+  max-width: 40vw;
 }
 .Home .Intro .Presentation img {
   width: 100%;
   max-width: 25em;
   border-radius: 25%;
   object-fit: cover;
+  margin: 0 0 1em 0;
 }
 .Home .Intro .CV h2 {
   font-size: 1.5em;
@@ -137,6 +139,38 @@ footer p {
   width: 100%;
   background-color: #D6CFFF;
 }
+.Home .Projects h1 {
+  color: #7C4FFD;
+  margin: 0 0 0.5em 0;
+  text-align: center;
+  font-size: 3em;
+}
+.Home .Projects .sort {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.Home .Projects .sort .selectSort {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.Home .Projects .sort .selectSort:focus {
+  outline: 2px solid #7C4FFD;
+}
+.Home .Projects .sort .selectSort label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.Home .Projects .sort .selectSort .btn {
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #A185F2;
+}
+.Home .Projects .sort .selectSort .btn:focus {
+  outline: 2px solid #7C4FFD;
+}
 .Home .Projects .Projects_list {
   gap: 5em;
   display: flex;
@@ -153,18 +187,23 @@ footer p {
   border-radius: 1em;
   padding: 3em;
 }
+.Home .Projects .Projects_list .Project h2 {
+  margin: 0 0 0.5em 0;
+  color: #7C4FFD;
+}
 .Home .Projects .Projects_list .Project h3 {
-  margin: 0.5em 0 0.5em 0;
+  margin: 0.5em 0 0 0;
   color: #7C80FB;
 }
 .Home .Projects .Projects_list .Project p {
-  margin: 0.1em 0 0.5em 0;
-  gap: 0.5em;
+  margin: 0;
+  gap: 5em;
 }
 .Home .Projects .Projects_list .Project span {
   background-color: #AAA0F9;
   padding: 0.5em;
-  margin: 0.5em 0 0 0;
+  margin: 0.3em 0;
+  display: inline-block;
   border-radius: 25%/50%;
 }
 .Home .Projects .Projects_list .Project img {
@@ -188,6 +227,12 @@ footer p {
 .Home .Projects .Projects_list .Project .btn:hover {
   background-color: #7C4FFD;
   color: white;
+}
+.Home .Projects .Projects_list .noResult {
+  display: none;
+  color: #7C4FFD;
+  width: 100%;
+  text-align: center;
 }
 .Home .Coordonnées {
   z-index: 1;
@@ -242,6 +287,12 @@ footer p {
   .Home .Projects {
     border-radius: 0 0 0 30em/0 0 0 12em;
   }
+  .Home .Projects .sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+  }
   .Home .Projects .Projects_list {
     width: 80%;
     flex-direction: row;
@@ -266,6 +317,35 @@ footer p {
   }
   .Home .Projects {
     border-radius: 0 0 0 50em/0 0 0 15em;
+  }
+  .Home .Projects .sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 7vw;
+  }
+  .Home .Projects .sort .selectSort {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: fit-content;
+  }
+  .Home .Projects .sort .selectSort:focus {
+    outline: 2px solid #7C4FFD;
+  }
+  .Home .Projects .sort .selectSort label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    width: 100%;
+  }
+  .Home .Projects .sort .selectSort .btn {
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #A185F2;
+  }
+  .Home .Projects .sort .selectSort .btn:focus {
+    outline: 2px solid #7C4FFD;
   }
   .Home .Projects .Projects_list {
     width: 90%;
