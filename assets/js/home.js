@@ -7,12 +7,17 @@ const noResult = document.getElementById("noResult");
 let nbProjectsFind = 0;
 
 
-
+// tri lorsque l'input select des Categories change
 CategorySelect.addEventListener("change", e => {
+
+    //on recupere la categorie selectionner et combien il y en a
     const selectedCategory = e.target.value;
     nbProjectsFind = 0;
 
+    // pour chaque projet verfie si il correspond a la categorie et au skill selectionner
     projects.forEach(project => {
+
+        //si le projet est bon il afficher sinon il passe en display none
         if ( (selectedCategory === "category-all" || project.classList.contains(selectedCategory)) && ((SkillSelect.value === "all" || project.classList.contains(SkillSelect.value))) ) {
             project.style.display = "";
             nbProjectsFind++;
@@ -21,6 +26,7 @@ CategorySelect.addEventListener("change", e => {
         }
     });
 
+    //si aucun projet est trouver afficher le message "Aucun projet trouver"
     if (nbProjectsFind === 0) {
         noResult.style.display = "block";
     } else {
@@ -29,6 +35,7 @@ CategorySelect.addEventListener("change", e => {
 });
 
 
+// meme chose mais inverse pour le skill
 SkillSelect.addEventListener("change", e => {
     const selectedSkill = e.target.value;
     nbProjectsFind = 0;

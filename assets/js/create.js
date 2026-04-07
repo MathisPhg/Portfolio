@@ -1,58 +1,66 @@
 
 // gestion des files avec la preview
 
-
+// variable / constante
 const input = document.getElementById("Project_Images");
 const preview = document.getElementById("picture-preview");
 
-if (input && preview) {
 
 
-    
-    let dataTransfer = new DataTransfer();
+let dataTransfer = new DataTransfer();
 
-    input.addEventListener("change", function () {
-
-        Array.from(this.files).forEach(file => {
+// recupere les fichier envoyer et les affiche en preview
+input.addEventListener("change", function () {
 
 
-            dataTransfer.items.add(file);
+    //on traite chaque fichier 1 par 1
+    Array.from(this.files).forEach(file => {
 
-            const reader = new FileReader();
+        //on ajoute le fichier dans le dataTransfer
+        dataTransfer.items.add(file);
 
-
-
-            reader.onload = function (e) {
-                const article = document.createElement("article");
-                article.innerHTML = `
-                    <img src="${e.target.result}" alt="${file.name}">
-                    <a href="#" class="btn">Supprimer</a>
-                `;
+        //on creer un reader pour recuperer les info du fichier
+        const reader = new FileReader();
 
 
+        //une fois le fichier lu on lui creer sa preview
+        reader.onload = e => {
+            const article = document.createElement("article");
+            article.innerHTML = `
+                <img src="${e.target.result}" alt="${file.name}">
+                <a href="#" class="btn">Supprimer</a>
+            `;
 
 
-                article.querySelector("a").addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const newDT = new DataTransfer();
-                    Array.from(dataTransfer.files).forEach(f => {
-                        if (f !== file) newDT.items.add(f);
-                    });
-                    dataTransfer = newDT;
-                    input.files = dataTransfer.files;
-                    article.remove();
+
+            //on verifie si l'utilisateur veut supprimer le fichier
+            article.querySelector("a").addEventListener("click", e => {
+                e.preventDefault();
+
+                //on change le dataTransfer pour supprimer le fichier
+                const newDT = new DataTransfer();
+                Array.from(dataTransfer.files).forEach(f => {
+                    if (f !== file) newDT.items.add(f);
                 });
 
-                preview.appendChild(article);
-            };
+                //on remet tout a jour
+                dataTransfer = newDT;
+                input.files = dataTransfer.files;
+                article.remove();
+            });
 
-            reader.readAsDataURL(file);
-        });
+            //on affiche la preview
+            preview.appendChild(article);
+        };
 
-        input.files = dataTransfer.files;
+        //sert a afficher les images
+        reader.readAsDataURL(file);
     });
-}
 
+    input.files = dataTransfer.files;
+});
+
+// creer un editeur de texte enrichi avec quill.js
 if (document.getElementById("quill-editor")) {
     const quill = new Quill("#quill-editor", { theme: "snow" });
     document.querySelector("form").addEventListener("submit", () => {
@@ -61,7 +69,7 @@ if (document.getElementById("quill-editor")) {
 }
 
 
-// nombre du input range des skills
+// ------------------- nombre du input range des skills -------------------
 
 const skillLevel = document.getElementById("level");
 const skillLabel = document.getElementById("levelLabel");
