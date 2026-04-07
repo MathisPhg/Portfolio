@@ -71,3 +71,17 @@ if (document.getElementById("quill-editor")) {
         contentTextarea.value = quill.root.innerHTML;
     });
 }
+
+
+
+
+// ------------------- nombre du input range des skills -------------------
+
+const skillrange = document.getElementById("level");
+const skillLabel = document.getElementById("levelLabel");
+
+
+skillrange.addEventListener("input", e => {
+    skillLabel.textContent = `Niveau: ${e.target.value}`;
+});
+

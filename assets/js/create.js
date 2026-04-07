@@ -1,7 +1,3 @@
-
-const skillrange = document.getElementById("level");
-const skillLabel = document.getElementById("levelLabel");
-
 // gestion des files avec la preview
 
 
@@ -80,9 +76,9 @@ if (document.getElementById("quill-editor")) {
 
 // ------------------- nombre du input range des skills -------------------
 
+const skillrange = document.getElementById("level");
+const skillLabel = document.getElementById("levelLabel");
 
-
-skillLabel.textContent = `Niveau: 0`;
 
 skillrange.addEventListener("input", e => {
     skillLabel.textContent = `Niveau: ${e.target.value}`;
