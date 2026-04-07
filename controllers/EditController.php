@@ -69,7 +69,7 @@ class EditController extends AbstractController
                                 }
                             }
 
-                            header("Location: index.php?page=list&list=project");
+                            header("Location: ?page=list&list=project");
                             exit();
                         } catch (\Exception $e) {
                             $error = "Une erreur est survenue lors de la mise à jour du projet.";
@@ -130,7 +130,7 @@ class EditController extends AbstractController
                                 $updatedSkill = new Skill($_GET["id"], $name, $level);
                                 $skillRepository->update($updatedSkill);
 
-                                header("Location: index.php?page=list&list=skill");
+                                header("Location: ?page=list&list=skill");
                                 exit();
                             } catch (\Exception $e) {
                                 $error = "Une erreur est survenue lors de la mise à jour de la compétence.";
@@ -173,7 +173,7 @@ class EditController extends AbstractController
                                 $updatedCategory = new Category($_GET["id"], $name);
                                 $categoryRepository->update($updatedCategory);
 
-                                header("Location: index.php?page=list&list=category");
+                                header("Location: ?page=list&list=category");
                                 exit();
                             } catch (\Exception $e) {
                                 $error = "Une erreur est survenue lors de la mise à jour de la catégorie.";
@@ -198,7 +198,7 @@ class EditController extends AbstractController
 
                 break;
             default:
-                header("Location: /?page=dashboard");
+                header("Location: ?page=dashboard");
                 exit();
         }
 

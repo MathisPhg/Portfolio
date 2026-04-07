@@ -11,7 +11,7 @@ class ListController extends AbstractController {
     public function index(): void  {
 
         if (empty($_SESSION["user"])) {
-            header("Location: /?page=home");
+            header("Location: ?page=home");
             exit();
         }
 
@@ -97,7 +97,7 @@ class ListController extends AbstractController {
                 break;
 
             default:
-                header("Location: /?page=home");
+                header("Location: ?page=home");
                 exit();
         }
 

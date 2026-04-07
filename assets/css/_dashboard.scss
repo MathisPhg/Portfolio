@@ -70,6 +70,7 @@
                         max-height: 70vh;
                         max-width: 60vw;
                         border-radius: 25%;
+                        transition: filter 0.3s;
                         cursor: pointer;
 
                         &:hover {

@@ -16,7 +16,7 @@ class DashboardController extends AbstractController {
         
 
         if (empty($_SESSION["user"])) {
-            header("Location: /?page=home");
+            header("Location: ?page=home");
             exit();
         }
     

@@ -10,6 +10,8 @@ use Repositories\SkillRepository;
 
 class ProjectController extends AbstractController {
     public function index(): void  {
+
+    try {
         
         $projectID = $_GET["id"];
 
@@ -24,7 +26,12 @@ class ProjectController extends AbstractController {
 
         $projectSkills = [];
         $projectSkills[$project->getId()] = $skillRepository->getByProject($project->getId());
-
+        
+        
+    } catch (\Exception $e) {
+    
+        $error = "Une erreur est survenue lors du chargement du projet.";
+    }
 
 
 

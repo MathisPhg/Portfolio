@@ -651,6 +651,7 @@ footer p {
   max-height: 70vh;
   max-width: 60vw;
   border-radius: 25%;
+  transition: filter 0.3s;
   cursor: pointer;
 }
 .Dashboard .Profil_info form article label img:hover {
@@ -1207,6 +1208,14 @@ body {
 
 main {
   flex: 1;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  width: 100%;
+  text-align: center;
 }
 
 p,

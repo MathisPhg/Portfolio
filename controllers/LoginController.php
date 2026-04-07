@@ -25,7 +25,7 @@ class LoginController extends AbstractController {
 
                     if (isset($user) && password_verify($password, $user->getPassword())) {
                         $_SESSION["user"] = $user->getId();
-                        header("Location: /?page=dashboard");
+                        header("Location: ?page=dashboard");
                         exit();
                     } else {
                         $error = "Nom d'utilisateur ou mot de passe incorrect";

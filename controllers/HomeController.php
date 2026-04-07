@@ -13,36 +13,41 @@ class HomeController extends AbstractController
 
     public function index(): void
     {
-
-        $profilRepository = new ProfilRepository();
-        $profil = $profilRepository->getById(1);
-
-
-
-        $projectRepository = new ProjectRepository();
-        $projects = $projectRepository->getAll();
+        
+        try {
+            $profilRepository = new ProfilRepository();
+            $profil = $profilRepository->getById(1);
 
 
-        $categoryRepository = new CategoryRepository();
-        $categories = $categoryRepository->getAll();
-        $projectCategories = [];
-        foreach ($projects as $project) {
-            $category = $categoryRepository->getById($project->getIdCategory());
-            $projectCategories[$project->getId()] = $category ? [$category] : [];
-        }
 
-        $skillRepository = new SkillRepository();
-        $skills = $skillRepository->getAll();
-        $projectSkills = [];
-        foreach ($projects as $project) {
-            $projectSkills[$project->getId()] = $skillRepository->getByProject($project->getId());
-        }
+            $projectRepository = new ProjectRepository();
+            $projects = $projectRepository->getAll();
 
-        $pictureRepository = new PictureRepository();
-        $picture = $pictureRepository->getById($profil->getIdPicture());
-        $projectPictures = [];
-        foreach ($projects as $project) {
-            $projectPictures[$project->getId()] = $pictureRepository->getFirst($project->getId());
+
+            $categoryRepository = new CategoryRepository();
+            $categories = $categoryRepository->getAll();
+            $projectCategories = [];
+            foreach ($projects as $project) {
+                $category = $categoryRepository->getById($project->getIdCategory());
+                $projectCategories[$project->getId()] = $category ? [$category] : [];
+            }
+
+            $skillRepository = new SkillRepository();
+            $skills = $skillRepository->getAll();
+            $projectSkills = [];
+            foreach ($projects as $project) {
+                $projectSkills[$project->getId()] = $skillRepository->getByProject($project->getId());
+            }
+
+            $pictureRepository = new PictureRepository();
+            $picture = $pictureRepository->getById($profil->getIdPicture());
+            $projectPictures = [];
+            foreach ($projects as $project) {
+                $projectPictures[$project->getId()] = $pictureRepository->getFirst($project->getId());
+            }
+
+        } catch (\Exception $e) {
+            $error = "Une erreur est survenue lors du chargement de la page.";
         }
 
 

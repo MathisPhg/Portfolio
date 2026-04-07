@@ -19,7 +19,7 @@ class CreateController extends AbstractController
     {
 
         if (empty($_SESSION["user"])) {
-            header("Location: /?page=home");
+            header("Location: ?page=home");
             exit();
         }
 
@@ -66,7 +66,7 @@ class CreateController extends AbstractController
                                 }
                             }
 
-                            header("Location: index.php?page=list&list=project");
+                            header("Location: ?page=list&list=project");
                             exit();
                         } catch (\Exception $e) {
                             $error = "Une erreur est survenue lors de la création du projet.";
@@ -106,7 +106,7 @@ class CreateController extends AbstractController
                                 $skillRepository = new SkillRepository();
                                 $skillRepository->create($skill);
 
-                                header("Location: index.php?page=list&list=skill");
+                                header("Location: ?page=list&list=skill");
                                 exit();
                             } catch (\Exception $e) {
                                 $error = "Une erreur est survenue lors de la création de la compétence.";
@@ -147,7 +147,7 @@ class CreateController extends AbstractController
                                 $categoryRepository = new CategoryRepository();
                                 $categoryRepository->create($category);
 
-                                header("Location: index.php?page=list&list=category");
+                                header("Location: ?page=list&list=category");
                                 exit();
                             } catch (\Exception $e) {
                                 $error = "Une erreur est survenue lors de la création de la catégorie.";
@@ -171,7 +171,7 @@ class CreateController extends AbstractController
 
                 break;
             default:
-                header("Location: /?page=dashboard");
+                header("Location: ?page=dashboard");
                 exit();
         }
 
