@@ -82,13 +82,13 @@
                 margin: 0;
             }
 
-            img {
+                img {
 
-                max-width: 50%;
-                border: 1px solid c.$color5;
-                margin: 0 25% 1em 25%;
+                    width: 80%;
+                    border: 1px solid c.$color5;
+                    margin: 0 10% 1em 10%;
 
-            }
+                }     
 
             p {
 
@@ -99,10 +99,10 @@
 
                 span {
 
-                    background-color: c.$color6;
-                    text-align: center;
+                    background-color: c.$color4;
                     padding: 0.5em;
-                    border-radius: 0.5em;
+                    
+                    border-radius: 25% / 50%;
 
                 }
 
@@ -217,7 +217,17 @@
             article {
 
                 width: calc(100% / 3 - 2em);
-                
+
+
+
+                img {
+
+                    max-width: 20vw;
+                    width: 80%;
+                    border: 1px solid c.$color5;
+                    margin: 0 10% 1em 10%;
+
+                }                
 
 
 

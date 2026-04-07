@@ -53,7 +53,11 @@ class ListController extends AbstractController {
                     }
                 }
 
-
+                $skillRepository = new SkillRepository();
+                $skills = [];
+                foreach ($projects as $project) {
+                    $skills[$project->getId()] = $skillRepository->getByProject($project->getId());
+                }
 
             break;
             case "skill":

@@ -753,9 +753,9 @@ footer p {
   margin: 0;
 }
 .List section article img {
-  max-width: 50%;
+  width: 80%;
   border: 1px solid #D6CFFF;
-  margin: 0 25% 1em 25%;
+  margin: 0 10% 1em 10%;
 }
 .List section article p {
   overflow-x: auto;
@@ -764,10 +764,9 @@ footer p {
   gap: 1em;
 }
 .List section article p span {
-  background-color: #EBE2F4;
-  text-align: center;
+  background-color: #AAA0F9;
   padding: 0.5em;
-  border-radius: 0.5em;
+  border-radius: 25%/50%;
 }
 .List section article div {
   display: flex;
@@ -832,6 +831,12 @@ footer p {
   }
   .List section article {
     width: calc(33.3333333333% - 2em);
+  }
+  .List section article img {
+    max-width: 20vw;
+    width: 80%;
+    border: 1px solid #D6CFFF;
+    margin: 0 10% 1em 10%;
   }
 }
 .Createdit {

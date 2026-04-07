@@ -18,12 +18,24 @@
                     <img src="<?= htmlspecialchars($pictures[$project->getId()]->getLink()) ?>" alt="">
                 <?php endif; ?>
                 <h3><?= htmlspecialchars($project->getName()) ?></h3>
+
+                <h3>Catégories</h3>
                 <p>
                     
                     <?php if (isset($categories[$project->getIdCategory()])): ?>
                         <span><?= htmlspecialchars($categories[$project->getIdCategory()]->getName()) ?></span>
                     <?php endif; ?>
                 </p>
+
+                <h3>Compétences</h3>
+                <p>
+                    <?php if (isset($skills[$project->getId()])): ?>
+                        <?php foreach ($skills[$project->getId()] as $skill) : ?>
+                            <span><?= htmlspecialchars($skill->getName()) ?></span>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </p>
+
                 <div>
                     <a href="?page=project&list=project&id=<?= htmlspecialchars($project->getId()) ?>" class="btn">voir</a>
                     <a href="?page=edit&type=project&id=<?= htmlspecialchars($project->getId()) ?>" class="Edit">Modifier</a>
