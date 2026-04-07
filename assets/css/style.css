@@ -379,21 +379,26 @@ footer p {
   padding: 1.5em 10% 35vh 10%;
   border-radius: 0 0 0 15em/0 0 0 10em;
 }
+.Project .Image .Selected_image .error {
+  width: 100%;
+}
 .Project .Image .Selected_image {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 2em 0 1em 0;
 }
 .Project .Image .Selected_image img {
   width: 100%;
+  object-fit: contain;
   max-width: 50vh;
-  border: 2px solid #EBE2F4;
+  max-height: 75vh;
 }
 .Project .Image .Image_list {
   display: flex;
   width: 80%;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 1em auto;
   gap: 1em;
   overflow-x: auto;
   overflow-y: hidden;
@@ -482,7 +487,7 @@ footer p {
   .Project .Image .Selected_image img {
     width: 100%;
     max-width: 50vw;
-    border: 2px solid #EBE2F4;
+    object-fit: contain;
   }
   .Project .Image .Image_list {
     max-width: 90%;

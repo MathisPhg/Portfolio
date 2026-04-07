@@ -65,13 +65,14 @@ class ListController extends AbstractController {
 
                 $skills = $skillRepository->getAll();
 
-
-                try {
-                    $skillRepository->delete($_GET["delete"]);
-                    header("Location: ?page=list&list=skill");
-                    exit();
-                } catch (\Exception $e) {
-                    $error = "Une erreur est survenue lors de la suppression, Veuillez dissocier toutes les compétences des projets associés avant de la supprimer.";
+                if (isset($_GET["delete"])) {
+                    try {
+                        $skillRepository->delete($_GET["delete"]);
+                        header("Location: ?page=list&list=skill");
+                        exit();
+                    } catch (\Exception $e) {
+                        $error = "Une erreur est survenue lors de la suppression, Veuillez dissocier toutes les compétences des projets associés avant de la supprimer.";
+                    }
                 }
 
 
@@ -85,12 +86,14 @@ class ListController extends AbstractController {
                 $categories = $categoryRepository->getAll();
 
 
-                try {
-                    $categoryRepository->delete($_GET["delete"]);
-                    header("Location: ?page=list&list=category");
-                    exit();
-                } catch (\Exception $e) {
-                    $error = "Une erreur est survenue lors de la suppression, Veuillez dissocier tous les projets associés à cette catégorie avant de la supprimer.";
+                if (isset($_GET["delete"])) {
+                    try {
+                        $categoryRepository->delete($_GET["delete"]);
+                        header("Location: ?page=list&list=category");
+                        exit();
+                    } catch (\Exception $e) {
+                        $error = "Une erreur est survenue lors de la suppression, Veuillez dissocier tous les projets associés à cette catégorie avant de la supprimer.";
+                    }
                 }
 
 
