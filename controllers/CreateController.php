@@ -18,18 +18,24 @@ class CreateController extends AbstractController
     public function index(): void
     {
 
+        //verifie si l'utilisateur est  connecter sinon le redirige vers la page d'accueil
         if (empty($_SESSION["user"])) {
             header("Location: ?page=home");
             exit();
         }
-
+        
+        //regarde qu'est ce qu'on veux creer
         switch ($_GET["type"]) {
+
+        //si on veux creer un projet
             case "project":
-
-
+                
+                
+                //verifie si le formulaire a deja ete soumit et si les champs sont remplie sinon
                 if (isset($_POST["submit"])) {
                     if (isset($_POST["title"]) && isset($_POST["content"]) && isset($_POST["category"]) && isset($_POST["skills"]) && isset($_FILES["Project_Images"]) ) {
-
+                        
+                        //verifie que les fichier envoyer soit bien des images
                         foreach ($_FILES["Project_Images"]["type"] as $index => $type) {
                             if (!str_contains($type, "image")) {
                                 $error = "Veuillez ajouter une image.";
@@ -37,7 +43,8 @@ class CreateController extends AbstractController
                             }
                         }
 
-                    
+
+                        //stocke tout dans des variable
                         $title = $_POST["title"];
                         $content = $_POST["content"];
                         $category = $_POST["category"];
@@ -45,17 +52,20 @@ class CreateController extends AbstractController
                         $images = $_FILES["Project_Images"];
 
                         try {
+
+                            //ajoute le projet en base de donnée
                             $project = new Project(null, $title, $content, $category);
                             $projectRepository = new ProjectRepository();
                             $projectRepository->create($project);
 
                             $newProject = $projectRepository->getByName($title);
 
-
+                            //ajoute les skill du projet en base de donnée
                             foreach ($skillsId as $skillId) {
                                 $projectRepository->addSkill($newProject->getId(), $skillId);
                             }
 
+                            //ajoute les chemins des images du projet en base de donnée et dans le dossier assets/images
                             $pictureRepository = new PictureRepository();
                             foreach ($images["tmp_name"] as $index => $tmpName) {
                                 if ($images["error"][$index] === 0) {
@@ -65,7 +75,8 @@ class CreateController extends AbstractController
                                     $pictureRepository->create($picture);
                                 }
                             }
-
+                            
+                            //redirige vers la liste des projets
                             header("Location: ?page=list&list=project");
                             exit();
                         } catch (\Exception $e) {
@@ -79,10 +90,12 @@ class CreateController extends AbstractController
 
 
 
-
+                //récupère toutes les catégories et compétences pour les afficher dans le formulaire
                 $categoryRepository = new CategoryRepository();
                 $categories = $categoryRepository->getAll();
 
+
+                //récupère toutes les skill pour les afficher dans le formulaire
                 $skillRepository = new SkillRepository();
                 $skills = $skillRepository->getAll();
 
@@ -93,8 +106,11 @@ class CreateController extends AbstractController
                 break;
             case "skill":
 
+                //sensiblement la meme chose que pour le projet mais plus simple vu qu'il y a moins de champs a remplir et pas de fichier a envoyer
+
                 try {
 
+                    
                     if (isset($_POST["submit"])) {
                         if (!empty($_POST["name"])) {
 
@@ -131,6 +147,8 @@ class CreateController extends AbstractController
 
                 break;
             case "category":
+
+                //sensiblement la meme chose que pour le projet mais plus simple vu qu'il y a moins de champs a remplir et pas de fichier a envoyer
 
 
 

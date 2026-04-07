@@ -1,5 +1,7 @@
 <?php
 
+
+// differente route prise par le router
 const AVAILABLE_ROUTES = [
     'home' => [
         'controller' => 'HomeController',

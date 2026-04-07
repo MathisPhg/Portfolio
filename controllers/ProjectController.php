@@ -13,6 +13,8 @@ class ProjectController extends AbstractController {
 
     try {
         
+        //recupere toute les info des projets pour les afficher dans la page du projet
+
         $projectID = $_GET["id"];
 
         $pictureRepository = new PictureRepository();

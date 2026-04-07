@@ -15,15 +15,17 @@ class HomeController extends AbstractController
     {
         
         try {
+
+            //recupere les données du profil pour les afficher dans la page d'accueil
             $profilRepository = new ProfilRepository();
             $profil = $profilRepository->getById(1);
 
 
-
+            //recupere les données des projets pour les afficher dans la page d'accueil
             $projectRepository = new ProjectRepository();
             $projects = $projectRepository->getAll();
 
-
+            //recupere les données des categories pour les afficher dans la page d'accueil
             $categoryRepository = new CategoryRepository();
             $categories = $categoryRepository->getAll();
             $projectCategories = [];
@@ -31,14 +33,16 @@ class HomeController extends AbstractController
                 $category = $categoryRepository->getById($project->getIdCategory());
                 $projectCategories[$project->getId()] = $category ? [$category] : [];
             }
-
+            
+            //recupere les données des skills pour les afficher dans la page d'accueil
             $skillRepository = new SkillRepository();
             $skills = $skillRepository->getAll();
             $projectSkills = [];
             foreach ($projects as $project) {
                 $projectSkills[$project->getId()] = $skillRepository->getByProject($project->getId());
             }
-
+            
+            //recupere les données des images pour les afficher dans la page d'accueil
             $pictureRepository = new PictureRepository();
             $picture = $pictureRepository->getById($profil->getIdPicture());
             $projectPictures = [];

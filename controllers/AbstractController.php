@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Repositories\ProfilRepository;
 
+//classe abstraite qui va notament servire pour le back end du layout
 abstract class AbstractController
 {   
 
