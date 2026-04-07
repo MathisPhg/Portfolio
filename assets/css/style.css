@@ -98,7 +98,6 @@ footer p {
   font-size: 1.2em;
   margin: 0;
   text-align: left;
-  max-width: 40vw;
 }
 .Home .Intro .Presentation img {
   width: 100%;
@@ -176,7 +175,7 @@ footer p {
   display: flex;
   flex-direction: column;
   margin: 2em 0 0 0;
-  width: 60%;
+  width: 80%;
 }
 .Home .Projects .Projects_list .Project {
   display: flex;
@@ -284,6 +283,9 @@ footer p {
     gap: 2em;
     margin-bottom: 2em;
   }
+  .Home .Intro .Presentation p {
+    max-width: 40vw;
+  }
   .Home .Projects {
     border-radius: 0 0 0 30em/0 0 0 12em;
   }
@@ -314,6 +316,9 @@ footer p {
     justify-content: space-around;
     gap: 3em;
     margin-bottom: 2em;
+  }
+  .Home .Intro .Presentation p {
+    max-width: 40vw;
   }
   .Home .Projects {
     border-radius: 0 0 0 50em/0 0 0 15em;

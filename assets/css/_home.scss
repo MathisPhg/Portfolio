@@ -51,7 +51,7 @@
                 font-size: 1.2em;
                 margin: 0;
                 text-align: left;
-                max-width: 40vw;
+                
                 
             }
 
@@ -181,7 +181,7 @@
             
             margin: 2em 0 0 0;
 
-            width: 60%;
+            width: 80%;
 
 
             .Project {
@@ -193,6 +193,7 @@
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 background-color: c.$color7;
                 border-radius: 1em;
+                
                 
                 padding: 3em;
 
@@ -347,6 +348,10 @@
                 justify-content: space-around;
                 gap: 2em;
                 margin-bottom: 2em;
+
+                p {
+                    max-width: 40vw;
+                }
             }
         }
 
@@ -398,6 +403,11 @@
                 justify-content: space-around;
                 gap: 3em;
                 margin-bottom: 2em;
+
+                p {
+                    max-width: 40vw;
+                }
+
             }
         }
 
