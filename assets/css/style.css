@@ -626,12 +626,21 @@ footer p {
   flex-direction: column;
 }
 .Dashboard .Profil_info form article textarea {
-  height: 20vh;
+  height: 40vh;
+}
+.Dashboard .Profil_info form article input, .Dashboard .Profil_info form article textarea {
+  margin: 0.7em 0;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #A185F2;
+}
+.Dashboard .Profil_info form article input:focus, .Dashboard .Profil_info form article textarea:focus {
+  outline: 2px solid #7C4FFD;
 }
 .Dashboard .Profil_info form article .ql-container.ql-snow {
   border: 1px solid #A185F2;
   background-color: white;
-  max-height: 20vh;
+  max-height: 40vh;
   overflow-y: auto;
 }
 .Dashboard .Profil_info form article .ql-container.ql-snow:focus-within {
@@ -747,6 +756,9 @@ footer p {
   .Dashboard .Profil_info form article input:focus, .Dashboard .Profil_info form article textarea:focus {
     outline: 2px solid #7C4FFD;
   }
+  .Dashboard .Profil_info form article .ql-container.ql-snow {
+    max-height: 20vh;
+  }
   .Dashboard .Profil_info h1 {
     width: 100%;
     font-size: 3em;
@@ -805,17 +817,32 @@ footer p {
   padding: 0;
   color: #7C80FB;
 }
-.List section .Title-Container {
+.List section .HeaderContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   gap: 1em;
 }
-.List section .Title-Container a {
+.List section .HeaderContainer .TitleContainer {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+.List section .HeaderContainer input {
+  margin: 0.7em 0;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #A185F2;
+}
+.List section .HeaderContainer input:focus {
+  outline: 2px solid #7C4FFD;
+}
+.List section .HeaderContainer a {
   height: fit-content;
 }
-.List section .Title-Container .btn {
+.List section .HeaderContainer .btn {
   text-decoration: none;
   color: #7C4FFD;
   font-weight: bold;
@@ -824,7 +851,7 @@ footer p {
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
-.List section .Title-Container .btn:hover {
+.List section .HeaderContainer .btn:hover {
   background-color: #7C4FFD;
   color: white;
 }

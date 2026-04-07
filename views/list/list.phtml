@@ -6,98 +6,112 @@
 
         <?php switch ($_GET["list"]) : case "project": ?>
 
-        <div class="Title-Container">
-            <h2>Projets</h2>
-            <a href="?page=create&type=project" class="btn">Créer</a>
-        </div>
-
-
-        <?php foreach ($projects as $project) : ?>
-            <article class="Object">
-                <?php if (!empty($pictures[$project->getId()])): ?>
-                    <img src="<?= htmlspecialchars($pictures[$project->getId()]->getLink()) ?>" alt="">
-                <?php endif; ?>
-                <h3><?= htmlspecialchars($project->getName()) ?></h3>
-
-                <h3>Catégories</h3>
-                <p>
-                    
-                    <?php if (isset($categories[$project->getIdCategory()])): ?>
-                        <span><?= htmlspecialchars($categories[$project->getIdCategory()]->getName()) ?></span>
-                    <?php endif; ?>
-                </p>
-
-                <h3>Compétences</h3>
-                <p>
-                    <?php if (isset($skills[$project->getId()])): ?>
-                        <?php foreach ($skills[$project->getId()] as $skill) : ?>
-                            <span><?= htmlspecialchars($skill->getName()) ?></span>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </p>
-
-                <div>
-                    <a href="?page=project&list=project&id=<?= htmlspecialchars($project->getId()) ?>" class="btn">voir</a>
-                    <a href="?page=edit&type=project&id=<?= htmlspecialchars($project->getId()) ?>" class="Edit">Modifier</a>
-                    <a href="?page=list&list=project&delete=<?= htmlspecialchars($project->getId()) ?>" class="Delete">Supprimer</a>
+            <div class="HeaderContainer">
+                <div class="TitleContainer">
+                    <h2>Projets</h2>
+                    <a href="?page=create&type=project" class="btn">Créer</a>
                 </div>
-
-            </article>
-        <?php endforeach; ?>
-
-        <?php break; ?>
-
-
-        <?php case "category": ?>
-            <div class="Title-Container">
-                <h2>Catégories</h2>
-                <a href="?page=create&type=category" class="btn">Créer</a>
+                <input type="text" placeholder="Rechercher..." id="searchInput">
             </div>
 
 
-        <?php foreach ($categories as $category) : ?>
-            <article class="Object">
-                <h1><?= htmlspecialchars($category->getName()) ?></h1>
-                <div>
-                    <a href="?page=edit&type=category&id=<?= htmlspecialchars($category->getId()) ?>" class="Edit">Modifier</a>
-                    <a href="?page=list&list=category&delete=<?= htmlspecialchars($category->getId()) ?>" class="Delete">Supprimer</a>
+            <?php foreach ($projects as $project) : ?>
+                <article class="Object">
+                    <?php if (!empty($pictures[$project->getId()])): ?>
+                        <img src="<?= htmlspecialchars($pictures[$project->getId()]->getLink()) ?>" alt="">
+                    <?php endif; ?>
+                    <h2 class="ObjectTitle"><?= htmlspecialchars($project->getName()) ?></h2>
+
+                    <h3>Catégories</h3>
+                    <p>
+                        
+                        <?php if (isset($categories[$project->getIdCategory()])): ?>
+                            <span><?= htmlspecialchars($categories[$project->getIdCategory()]->getName()) ?></span>
+                        <?php endif; ?>
+                    </p>
+
+                    <h3>Compétences</h3>
+                    <p>
+                        <?php if (isset($skills[$project->getId()])): ?>
+                            <?php foreach ($skills[$project->getId()] as $skill) : ?>
+                                <span><?= htmlspecialchars($skill->getName()) ?></span>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </p>
+
+                    <div>
+                        <a href="?page=project&list=project&id=<?= htmlspecialchars($project->getId()) ?>" class="btn">voir</a>
+                        <a href="?page=edit&type=project&id=<?= htmlspecialchars($project->getId()) ?>" class="Edit">Modifier</a>
+                        <a href="?page=list&list=project&delete=<?= htmlspecialchars($project->getId()) ?>" class="Delete">Supprimer</a>
+                    </div>
+
+                </article>
+            <?php endforeach; ?>
+
+            <h1 class="NoResults">Pas de résultats</h1>
+
+            <?php break; ?>
+
+
+        <?php case "category": ?>
+
+            <div class="HeaderContainer">
+                <div class="TitleContainer">
+                    <h2>Catégories</h2>
+                    <a href="?page=create&type=category" class="btn">Créer</a>
                 </div>
+                <input type="text" placeholder="Rechercher..." id="searchInput">
+            </div>
 
-            </article>
-        <?php endforeach; ?>
 
+            <?php foreach ($categories as $category) : ?>
+                <article class="Object">
+                    <h1 class="ObjectTitle"><?= htmlspecialchars($category->getName()) ?></h1>
+                    <div>
+                        <a href="?page=edit&type=category&id=<?= htmlspecialchars($category->getId()) ?>" class="Edit">Modifier</a>
+                        <a href="?page=list&list=category&delete=<?= htmlspecialchars($category->getId()) ?>" class="Delete">Supprimer</a>
+                    </div>
 
+                </article>
+            <?php endforeach; ?>
+            
+            
+            <h1 class="NoResults">Pas de résultats</h1>
 
             <?php break; ?>
 
         <?php case "skill": ?>
-            <div class="Title-Container">
-                <h2>Compétences</h2>
-                <a href="?page=create&type=skill" class="btn">Créer</a>
+
+            <div class="HeaderContainer">
+                <div class="TitleContainer">
+                    <h2>Compétences</h2>
+                    <a href="?page=create&type=skill" class="btn">Créer</a>
+                </div>
+                <input type="text" placeholder="Rechercher..." id="searchInput">
             </div>
 
 
 
 
-        <?php foreach ($skills as $skill) : ?>
-            <article class="Object">
-                <h1><?= htmlspecialchars($skill->getName()) ?></h1>
-                <div>
-                    <a href="?page=edit&type=skill&id=<?= htmlspecialchars($skill->getId()) ?>" class="Edit">Modifier</a>
-                    <a href="?page=list&list=skill&delete=<?= htmlspecialchars($skill->getId()) ?>" class="Delete">Supprimer</a>
-                </div>
+            <?php foreach ($skills as $skill) : ?>
+                <article class="Object">
+                    <h1 class="ObjectTitle"><?= htmlspecialchars($skill->getName()) ?></h1>
+                    <div>
+                        <a href="?page=edit&type=skill&id=<?= htmlspecialchars($skill->getId()) ?>" class="Edit">Modifier</a>
+                        <a href="?page=list&list=skill&delete=<?= htmlspecialchars($skill->getId()) ?>" class="Delete">Supprimer</a>
+                    </div>
 
-            </article>
-        <?php endforeach; ?>
+                </article>
+            <?php endforeach; ?>
 
-
+            <h1 class="NoResults">Pas de résultats</h1>
 
 
             <?php break; ?>
 
         <?php default: ?>
-            <?php header("Location: /?page=dashboard"); ?>
-            <?php exit(); ?>
+                <?php header("Location: /?page=dashboard"); ?>
+                <?php exit(); ?>
         <?php endswitch; ?>
 
 

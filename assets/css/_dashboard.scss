@@ -36,12 +36,29 @@
                 flex-direction: column;
 
                 textarea {
-                    height: 20vh;
+                    height: 40vh;
                 }
+
+
+                input, textarea {
+                    margin: 0.7em 0;
+                    padding: 0.5em;
+                    border-radius: 5px;
+                    border: 1px solid c.$color3;
+
+                    &:focus {
+                        outline: 2px solid c.$color1;
+                        
+                    }
+
+                }
+
+
+
                 .ql-container.ql-snow {
                     border: 1px solid c.$color3;
                     background-color: white;
-                    max-height: 20vh;
+                    max-height: 40vh;
                     overflow-y: auto;
 
                     &:focus-within {
@@ -243,6 +260,17 @@
                         }
 
                     }
+
+
+                    .ql-container.ql-snow {
+
+                        max-height: 20vh;
+                    }
+
+
+
+
+
                 }
             }
 
