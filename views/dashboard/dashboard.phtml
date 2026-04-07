@@ -10,7 +10,7 @@
 
                 <h2>Mon Profil</h2>
 
-                <label for="profil_image_input"><img src="<?= $picture->getLink() ?>" alt="Profil" id="profil_image" class="profil"></label>
+                <label for="profil_image_input"><img src="<?= htmlspecialchars($picture->getLink()) ?>" alt="Profil" id="profil_image" class="profil"></label>
                 <input type="file" id="profil_image_input" name="profil_image_input" class="File_input">
 
 
@@ -21,17 +21,17 @@
             
                 
                 <label for="name">Nom</label>
-                <input type="text" id="name" name="name" value="<?= $profil->getName() ?>">
+                <input type="text" id="name" name="name" value="<?= htmlspecialchars($profil->getName()) ?>">
 
                 <label for="description">Description</label>
-                <textarea id="description" name="description" style="display:none"><?= $profil->getDescription() ?></textarea>
+                <textarea id="description" name="description" style="display:none"><?= str_replace("<script>", "&lt;script&gt;",$profil->getDescription()) ?></textarea>
                 <div id="quill-editor"></div>
 
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?= $profil->getEmail() ?>">
+                <input type="email" id="email" name="email" value="<?= htmlspecialchars($profil->getEmail()) ?>">
 
                 <label for="phone">Téléphone</label>
-                <input type="tel" id="phone" name="phone" value="<?= $profil->getPhone() ?>">
+                <input type="tel" id="phone" name="phone" value="<?= htmlspecialchars($profil->getPhone()) ?>">
 
                 <label for="cv" class="btn">changer de CV</label>
                 <p>CV actuel : <?= htmlspecialchars(explode("_", str_replace("assets/images/", "", $profil->getCv()))[1]) ?></p>

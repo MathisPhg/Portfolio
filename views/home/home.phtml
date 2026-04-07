@@ -21,7 +21,7 @@
             <article class="CV">
 
             <h2 id="TitreCV">Consulter mon Curriculum Vitae</h2>
-            <a href="<?= $profil->getCv() ?>" download="<?= $profil->getName() ?>_CV" class="btn">Télécharger</a>
+            <a href="<?= htmlspecialchars($profil->getCv()) ?>" download="<?= htmlspecialchars($profil->getName()) ?>_CV" class="btn">Télécharger</a>
 
             </article>
         

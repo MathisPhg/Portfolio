@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title); ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <?php if (in_array($_GET["page"] ?? "", ["create", "edit", "dashboard"])): ?>
-        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
-    <?php endif; ?>
+    
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+    
     <script src="assets/js/script.js" defer></script>
     <?php if (in_array($_GET["page"] ?? "", ["create", "edit", "dashboard"])): ?>
         <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>

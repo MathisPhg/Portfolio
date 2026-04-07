@@ -15,7 +15,7 @@
 
             <label for="content">Contenue</label>
             <div>
-                <textarea id="content" name="content" ><?php if ($_GET["page"] === "edit") { echo $project->getDescription(); } ?></textarea>
+                <textarea id="content" name="content" ><?= ($_GET["page"] === "edit") ? str_replace("<script>", "&lt;script&gt;",$project->getDescription()) : "" ?></textarea>
                 <div id="quill-editor"></div>
             </div>
             

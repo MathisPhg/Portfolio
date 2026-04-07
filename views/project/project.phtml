@@ -20,7 +20,7 @@
     <section class="Info">
         
         <?php if (isset($_SESSION["user"])) : ?>
-            <a href="?page=edit&type=project&id=<?= $projectID ?>" class="btn">Edit</a>
+            <a href="?page=edit&type=project&id=<?= htmlspecialchars($projectID) ?>" class="btn">Edit</a>
         <?php endif; ?>
 
         <h1 class="Title"><?= htmlspecialchars($project->getName()) ?></h1>
