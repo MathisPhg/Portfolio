@@ -96,7 +96,8 @@ footer p {
 }
 .Home .Intro .Presentation p {
   font-size: 1.2em;
-  margin: 0;
+  width: 80%;
+  margin: auto;
   text-align: left;
 }
 .Home .Intro .Presentation img {
@@ -276,16 +277,6 @@ footer p {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-  .Home .Intro .Presentation {
-    max-width: 90%;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 2em;
-    margin-bottom: 2em;
-  }
-  .Home .Intro .Presentation p {
-    max-width: 40vw;
-  }
   .Home .Projects {
     border-radius: 0 0 0 30em/0 0 0 12em;
   }
@@ -1255,7 +1246,7 @@ h1,
 h2,
 h3,
 h4 {
-  max-width: 100%;
+  max-width: 100vw;
   overflow-wrap: break-word;
 }
 
